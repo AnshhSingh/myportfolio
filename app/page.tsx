@@ -1,28 +1,42 @@
 'use client'
+import { useEffect } from "react"
 import Link from "next/link"
 import { CardHeader, CardContent, CardFooter, Card } from "@/components/ui/card"
 import Image from 'next/image'
 // import {NavigationIcon,Node,TypeIcon,ComponentIcon,WindIcon,Database} from ""
 import * as icon from '../public/icon';
+
 function theme(){
+
   if(document.documentElement.classList.contains("dark")){
   document.documentElement.classList.remove("dark");
-  console.log("light")
+  localStorage.setItem("theme","light")
+
 }
 else{
   
   document.documentElement.classList.add("dark");
-  console.log("dark")
+  localStorage.setItem("theme","dark")
+
+  }
+
+ 
 }
-}
+
+
+
 export default function mainpage() {
+
+  
   return (
 
     <div className="w-full">
           <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"></link>
    
-   
+   <button onClick={theme}><icon.Mode className=" fixed align-bottom right-3 h-6 w-6 "/> </button>
+
+  
       <section className="w-full pt-12 md:pt-24 lg:pt-32">
         <div className="container space-y-10 xl:space-y-16">
           
@@ -33,8 +47,7 @@ export default function mainpage() {
               <div className="space-y-2">
               
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
-                  Portfolio <button onClick={theme}><icon.Mode className="w-6 h-6 justify-self-end self-end"/> </button>
-                  
+                  Portfolio.
                 </h1>
                
               
@@ -276,7 +289,7 @@ export default function mainpage() {
                 <icon.Location className="w-6 h-6" />
                 <span className="font-medium ">Chennai, TamilNadu</span>
               </div>
-              <div className="flex items-center space-x-2 ">
+              <div className=" flex p-2">
               <Link
                   className=" border-gray-200 bg-white px-4 text-xs font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300 "
                   href="https://www.linkedin.com/in/ansh-singh-484215253/"
@@ -303,6 +316,7 @@ export default function mainpage() {
           </div>
         </div>
       </section>
+    
     </div>
   )
 }
