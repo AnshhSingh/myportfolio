@@ -1,40 +1,22 @@
-'use client'
+
+import {ThemeSwitcher} from "../components/ui/ThemeSwitcher"
 import { useEffect } from "react"
 import Link from "next/link"
 import { CardHeader, CardContent, CardFooter, Card } from "@/components/ui/card"
 import Image from 'next/image'
 // import {NavigationIcon,Node,TypeIcon,ComponentIcon,WindIcon,Database} from ""
 import * as icon from '../public/icon';
-
-function theme(){
-
-  if(document.documentElement.classList.contains("dark")){
-  document.documentElement.classList.remove("dark");
-  localStorage.setItem("theme","light")
-
-}
-else{
-  
-  document.documentElement.classList.add("dark");
-  localStorage.setItem("theme","dark")
-
-  }
-
- 
-}
-
-
-
 export default function mainpage() {
 
   
   return (
 
     <div className="w-full">
+      <ThemeSwitcher></ThemeSwitcher>
           <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"></link>
    
-   <button onClick={theme}><icon.Mode className=" fixed align-bottom right-3 h-6 w-6 "/> </button>
+   
 
   
       <section className="w-full pt-12 md:pt-24 lg:pt-32">
@@ -81,7 +63,7 @@ export default function mainpage() {
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
                 <Link
                   className="inline-flex h-10 items-center justify-center rounded-md border  border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50  dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
-                  href="#"
+                  href="/contact"
                 >
                   Contact
                 </Link>
@@ -141,7 +123,7 @@ export default function mainpage() {
               <CardFooter className="flex p-4 justify-end">
                 <Link
                   className="inline-flex h-6 items-center rounded-md border  border-gray-200 bg-white px-4 text-xs font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800  dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
-                  href="#" target="_blank"
+                  href="https://github.com/AnshhSingh/microcontrollerbench" target="_blank"
                 >
                   View Project
                 </Link>
@@ -179,7 +161,7 @@ export default function mainpage() {
               <CardFooter className="flex p-4 justify-end">
                 <Link
                   className="inline-flex h-6 items-center rounded-md border border-gray-200 bg-white px-4 text-xs font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
-                  href="#" target="_blank"
+                  href="https://github.com/AnshhSingh/votewiki" target="_blank"
                 >
                   View Project
                 </Link>
@@ -217,7 +199,7 @@ export default function mainpage() {
               <CardFooter className="flex p-4 justify-end">
                 <Link
                   className="inline-flex h-6 items-center rounded-md border border-gray-200  bg-white px-4 text-xs font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50  dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
-                  href="#" target="_blank"
+                  href="https://github.com/AnshhSingh/Ecom" target="_blank"
                 >
                   View Project
                 </Link>
