@@ -63,7 +63,7 @@ else{
                 <div className="space-y-2 p-7">
                   <h3 className="text-2xl font-bold">Send me a message</h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
-                    Have a question or want to get in touch? Send me a message and I'll get back to you as soon as
+                    Have a question or want to get in touch? Send me a message and I`&apos;`ll get back to you as soon as
                     possible.
                   </p>
                 </div>
