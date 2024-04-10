@@ -86,7 +86,7 @@ else{
                     <Label htmlFor="message">Message</Label>
                     <Textarea onChange={(e) => setmessage(e.target.value)} value={message} className="min-h-[100px]" id="message" placeholder="Enter your message" />
                   </div>
-                  <Button type="reset" onClick={() => send()}>Send message</Button>
+                  <Button type="submit" onClick={() => send()}>Send message</Button>
                 </form>
               </CardContent>
             </Card>
