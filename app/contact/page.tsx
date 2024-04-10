@@ -1,4 +1,4 @@
-
+"use client"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -6,15 +6,37 @@ import { Button } from "@/components/ui/button"
 import { CardContent, Card } from "@/components/ui/card"
 import * as icon from '../../public/icon';
 import {ThemeSwitcher} from "../../components/ui/ThemeSwitcher"
-import { createClient } from '@/utils/supabase/client'
-import { type User } from '@supabase/supabase-js'
+import { createClient } from '../../utils/supabase/client'
+import { useMemo, useState } from "react";
+import { useToast } from "../../components/ui/use-toast";
 
 
-export default function contact() {
- function send(){
-   const supabase = createClient()
-   console.log(supabase)
+export default function Contact() {
+
+  const [fname, setfname] = useState("");
+  const [lname, setlname] = useState("");
+  const [email, setemail] = useState("");
+  const [message, setmessage] = useState("");
+  const { toast } = useToast();
+  async function send(){
+if(fname==""||email==""){
+
+alert("please enter email and firstname")
+
 }
+else{
+    const supabase = createClient();
+    const { data, error } = await supabase
+    .from('contact')
+    .insert([
+      { First_name: fname, Last_name: lname, email:email,message:message },
+    ])
+    .select()
+  }
+  
+  }
+
+
   return (
     <div className="w-full">
        <ThemeSwitcher></ThemeSwitcher>
@@ -49,22 +71,22 @@ export default function contact() {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="first-name">First name</Label>
-                      <Input id="first-name" placeholder="Enter your first name" />
+                      <Input value={fname} onChange={(e) => setfname(e.target.value)} id="first-name" placeholder="Enter your first name" />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="last-name">Last name</Label>
-                      <Input id="last-name" placeholder="Enter your last name" />
+                      <Input onChange={(e) => setlname(e.target.value)} value={lname} id="last-name" placeholder="Enter your last name" />
                     </div>
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" placeholder="Enter your email" type="email" />
+                    <Input value={email} onChange={(e) => setemail(e.target.value)} id="email" placeholder="Enter your email" type="email" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="message">Message</Label>
-                    <Textarea className="min-h-[100px]" id="message" placeholder="Enter your message" />
+                    <Textarea onChange={(e) => setmessage(e.target.value)} value={message} className="min-h-[100px]" id="message" placeholder="Enter your message" />
                   </div>
-                  <Button type="submit" onClick={() => send()}>Send message</Button>
+                  <Button type="reset" onClick={() => send()}>Send message</Button>
                 </form>
               </CardContent>
             </Card>

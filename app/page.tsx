@@ -11,7 +11,7 @@ export default function mainpage() {
   
   return (
 
-    <div className="w-full">
+    <div className="w-full items-center justify-center">
       <ThemeSwitcher></ThemeSwitcher>
           <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"></link>
@@ -273,7 +273,7 @@ export default function mainpage() {
               </div>
               <div className=" flex p-2">
               <Link
-                  className=" border-gray-200 bg-white px-4 text-xs font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300 "
+                  className=" border-gray-200 bg-white px-2 py-2 text-xs font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300 "
                   href="https://www.linkedin.com/in/ansh-singh-484215253/"
                   rel="linkedin"
                   target="_blank"
@@ -281,7 +281,7 @@ export default function mainpage() {
                   <icon.Linkdin className="w-6 h-6" />
                 </Link>
                 <Link
-                  className=" border-gray-200 bg-white px-4 text-xs font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
+                  className=" border-gray-200 bg-white px-2 py-2 text-xs font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
                   href="https://github.com/AnshhSingh"
                   rel="github"
                   target="_blank"
