@@ -7,7 +7,7 @@ import { CardContent, Card } from "@/components/ui/card"
 import * as icon from '../../public/icon';
 import {ThemeSwitcher} from "../../components/ui/ThemeSwitcher"
 import { createClient } from '../../utils/supabase/client'
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useToast } from "../../components/ui/use-toast";
 
 
