@@ -55,7 +55,7 @@ export default function mainpage() {
               unoptimized/>
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl xl:text-5xl">Hi, I’m Ansh</h1>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl xl:text-5xl">Hi, I’m Ansh</h2>
                 <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
                 A passionate developer with experience in working with MERN stack, ExpressJS, nextjs, SQL and  Linux
                 </p>
@@ -212,7 +212,7 @@ export default function mainpage() {
             <Card>
               <CardHeader className="flex items-center gap-4 p-40">
                 <div className="flex-1">
-                  <h1 className="font-bold text-5xl">See More..</h1>
+                  <h2 className="font-bold text-5xl">See More..</h2>
                 </div>
               </CardHeader>
             </Card>

@@ -11,10 +11,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://myportfolio-sandy-seven.vercel.app/'),
   alternates: {
     canonical: '/',
-    languages: {
-      'en-US': '/en-US',
-      'de-DE': '/de-DE',
-    },
+
   },
 };
 
