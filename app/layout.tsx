@@ -5,8 +5,8 @@ import {Providers}  from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ansh Singh Portfolio",
-  description: "This is my portfolio website",
+  title: "Ansh Singh Portfolio website",
+  description: "This is my portfolio website to showcase my projects and skills including contact information",
   authors: [{ name: 'Ansh', url: 'https://myportfolio-sandy-seven.vercel.app/' }],
   metadataBase: new URL('https://myportfolio-sandy-seven.vercel.app/'),
   alternates: {
