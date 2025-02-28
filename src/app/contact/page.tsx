@@ -1,0 +1,140 @@
+'use client';
+import { motion } from 'framer-motion';
+import { Mail, Phone, MapPin, Linkedin, Github, Globe } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+
+export default function Contact() {
+  return (
+    <div className="min-h-screen flex items-center justify-center p-4 bg-background relative">
+      <div className="container max-w-7xl w-full px-4">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-4xl md:text-6xl font-bold tracking-tight text-center mb-12 md:mb-16"
+        >
+          Get in Touch
+        </motion.h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="bg-card rounded-xl border border-primary/20 p-6 shadow-lg"
+          >
+            <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
+            <form className="space-y-6">
+              <div>
+                <label className="block text-muted-foreground mb-2">Full Name</label>
+                <input
+                  type="text"
+                  className="w-full px-4 py-3 bg-muted/50 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
+                  placeholder="John Doe"
+                />
+              </div>
+              <div>
+                <label className="block text-muted-foreground mb-2">Email</label>
+                <input
+                  type="email"
+                  className="w-full px-4 py-3 bg-muted/50 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
+                  placeholder="john@example.com"
+                />
+              </div>
+              <div>
+                <label className="block text-muted-foreground mb-2">Message</label>
+                <textarea
+                  className="w-full px-4 py-3 bg-muted/50 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none h-32"
+                  placeholder="Your message..."
+                ></textarea>
+              </div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button className="w-full gap-2 px-8 py-6 text-lg">
+                  Send Message
+                </Button>
+              </motion.div>
+            </form>
+          </motion.div>
+
+          {/* Contact Information */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="bg-card rounded-xl border border-primary/20 p-6 shadow-lg"
+          >
+            <h2 className="text-2xl font-bold mb-6">Contact Info</h2>
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-primary/10 rounded-lg text-primary">
+                  <Mail className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="text-muted-foreground">Email</p>
+                  <p className="font-medium">anshsingh25bd@gmail.com</p>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-primary/10 rounded-lg text-primary">
+                  <Phone className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="text-muted-foreground">Phone</p>
+                  <p className="font-medium">+91 6359451876</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-primary/10 rounded-lg text-primary">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="text-muted-foreground">Location</p>
+                  <p className="font-medium">Chennai, Tamil Nadu</p>
+                </div>
+              </div>
+
+              <div className="pt-6">
+                <h3 className="text-lg font-semibold mb-4">Social Connections</h3>
+                <div className="flex gap-4">
+                  <motion.a
+                    href="https://www.linkedin.com/in/ansh-singh-484215253/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <Linkedin className="w-6 h-6" />
+                  </motion.a>
+                  <motion.a
+                    href="https://github.com/AnshhSingh"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <Github className="w-6 h-6" />
+                  </motion.a>
+                  <motion.a
+                    href="https://example.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <Globe className="w-6 h-6" />
+                  </motion.a>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+}
