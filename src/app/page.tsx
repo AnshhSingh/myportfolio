@@ -74,8 +74,8 @@ export default function Portfolio() {
 
             {/* Download Resume Button */}
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button className="gap-2 px-6 py-4 md:px-8 md:py-6 text-base md:text-lg" aria-label="Download Resume">
-                <Download size={20} className="md:size-6" />
+              <Button className="gap-2 px-6 py-4 md:px-8 md:py-6 text-base md:text-lg"  aria-label="Download Resume">
+                <Download size={20} className="md:size-6" href="" />
                 Download Resume
               </Button>
             </motion.div>
@@ -83,7 +83,7 @@ export default function Portfolio() {
             {/* Social Icons */}
             <div className="flex justify-center md:justify-start gap-4">
               <motion.a
-                href="https://linkedin.com" // Placeholder URL
+                href="https://www.linkedin.com/in/ansh-singh-484215253/" // Placeholder URL
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
@@ -93,7 +93,7 @@ export default function Portfolio() {
                 <Linkedin size={24} />
               </motion.a>
               <motion.a
-                href="https://github.com" // Placeholder URL
+                href="https://github.com/AnshhSingh" // Placeholder URL
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
@@ -103,7 +103,7 @@ export default function Portfolio() {
                 <Github size={24} />
               </motion.a>
               <motion.a
-                href="https://example.com" // Placeholder URL
+                href="https://myportfolio-sandy-seven.vercel.app/" 
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}

@@ -1,9 +1,53 @@
-'use client';
-import { motion } from 'framer-motion';
+"use client";
+
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "framer-motion";
+// import { Mail, Phone, MapPin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { sendContactForm } from "../actions";
 import { Mail, Phone, MapPin, Linkedin, Github, Globe } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { z } from "zod";
+
+// Form Schema
+const contactSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
 
 export default function Contact() {
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm({
+    resolver: zodResolver(contactSchema),
+  });
+
+  async function onSubmit(data: { name: string; email: string; message: string }) {
+
+    setStatus("idle");
+
+    const formData = new FormData();
+    Object.entries(data).forEach(([key, value]) => {
+      formData.append(key, value as string);
+    });
+
+    const result = await sendContactForm(formData);
+
+    if (result.success) {
+      setStatus("success");
+      reset(); // Reset form after success
+    } else {
+      setStatus("error");
+    }
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-background relative">
       <div className="container max-w-7xl w-full px-4">
@@ -25,35 +69,61 @@ export default function Contact() {
             className="bg-card rounded-xl border border-primary/20 p-6 shadow-lg"
           >
             <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
                 <label className="block text-muted-foreground mb-2">Full Name</label>
                 <input
                   type="text"
+                  {...register("name")}
                   className="w-full px-4 py-3 bg-muted/50 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
                   placeholder="John Doe"
                 />
+                {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
               </div>
+
               <div>
                 <label className="block text-muted-foreground mb-2">Email</label>
                 <input
                   type="email"
+                  {...register("email")}
                   className="w-full px-4 py-3 bg-muted/50 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
                   placeholder="john@example.com"
                 />
+                {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
               </div>
+
               <div>
                 <label className="block text-muted-foreground mb-2">Message</label>
                 <textarea
+                  {...register("message")}
                   className="w-full px-4 py-3 bg-muted/50 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none h-32"
                   placeholder="Your message..."
-                ></textarea>
+                />
+                {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>}
               </div>
+
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button className="w-full gap-2 px-8 py-6 text-lg">
-                  Send Message
+                <Button type="submit" className="w-full gap-2 px-8 py-6 text-lg" disabled={isSubmitting}>
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </motion.div>
+
+              {/* Success & Error Messages */}
+              <div aria-live="polite">
+                {status === "success" && (
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="text-green-500 text-sm mt-2"
+                  >
+                    ✅ Message sent successfully!
+                  </motion.p>
+                )}
+                {status === "error" && (
+                  <p className="text-red-500 text-sm mt-2">❌ Failed to send message.</p>
+                )}
+              </div>
             </form>
           </motion.div>
 
@@ -75,7 +145,7 @@ export default function Contact() {
                   <p className="font-medium">anshsingh25bd@gmail.com</p>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-4">
                 <div className="p-3 bg-primary/10 rounded-lg text-primary">
                   <Phone className="w-6 h-6" />
@@ -92,7 +162,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-muted-foreground">Location</p>
-                  <p className="font-medium">Chennai, Tamil Nadu</p>
+                  <p className="font-medium">Chennai, India</p>
                 </div>
               </div>
 
@@ -120,7 +190,7 @@ export default function Contact() {
                     <Github className="w-6 h-6" />
                   </motion.a>
                   <motion.a
-                    href="https://example.com"
+                    href="https://myportfolio-sandy-seven.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}
@@ -129,7 +199,7 @@ export default function Contact() {
                   >
                     <Globe className="w-6 h-6" />
                   </motion.a>
-                </div>
+                  </div>
               </div>
             </div>
           </motion.div>
