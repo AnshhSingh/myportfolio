@@ -1,21 +1,20 @@
 'use client';
 import Image from "next/image";
-import { Download, Linkedin, Github, Globe } from "lucide-react"; // Import icons
+import { Download, Linkedin, Github, Link } from "lucide-react"; 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
 export default function Portfolio() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4">
-      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_2px),linear-gradient(to_bottom,#f0f0f0_2px,transparent_1px)] bg-[size:6rem_4rem]"></div>
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }} 
+       <motion.div 
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }} 
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="container max-w-7xl w-full px-4"
       >
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Left side - Photo */}
+       
           <div className="flex justify-center md:justify-end order-1 md:order-none">
             <motion.div 
               initial={{ scale: 0.9, opacity: 0 }} 
@@ -34,7 +33,6 @@ export default function Portfolio() {
             </motion.div>
           </div>
 
-          {/* Right side - Text */}
           <motion.div 
             initial={{ opacity: 0, x: 30 }} 
             animate={{ opacity: 1, x: 0 }} 
@@ -42,7 +40,7 @@ export default function Portfolio() {
             className="space-y-6 md:space-y-8 text-center md:text-left order-2 md:order-none"
           >
             <div className="space-y-4">
-              {/* Animated h1 */}
+              
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -71,7 +69,7 @@ export default function Portfolio() {
               </p>
             </div>
 
-            {/* Download Resume Button */}
+      
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <a href="ansh_resume.pdf" download="Ansh_Resume.pdf">
                 <Button className="gap-2 px-6 py-4 md:px-8 md:py-6 text-base md:text-lg" aria-label="Download Resume">
@@ -81,7 +79,7 @@ export default function Portfolio() {
               </a>
             </motion.div>
 
-            {/* Social Icons */}
+          
             <div className="flex justify-center md:justify-start gap-4">
               <motion.a
                 href="https://www.linkedin.com/in/ansh-singh-484215253/" // Placeholder URL
@@ -104,14 +102,14 @@ export default function Portfolio() {
                 <Github size={24} />
               </motion.a>
               <motion.a
-                href="https://myportfolio-sandy-seven.vercel.app/" 
+                href="/links" 
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
-                <Globe size={24} />
+                <Link size={24} />
               </motion.a>
             </div>
           </motion.div>

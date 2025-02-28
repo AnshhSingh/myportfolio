@@ -7,10 +7,9 @@ import { motion } from "framer-motion";
 // import { Mail, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { sendContactForm } from "../actions";
-import { Mail, Phone, MapPin, Linkedin, Github, Globe } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github, Globe } from "lucide-react";
 import { z } from "zod";
 
-// Form Schema
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
@@ -19,7 +18,7 @@ const contactSchema = z.object({
 
 export default function Contact() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
-  
+
   const {
     register,
     handleSubmit,
@@ -29,8 +28,11 @@ export default function Contact() {
     resolver: zodResolver(contactSchema),
   });
 
-  async function onSubmit(data: { name: string; email: string; message: string }) {
-
+  async function onSubmit(data: {
+    name: string;
+    email: string;
+    message: string;
+  }) {
     setStatus("idle");
 
     const formData = new FormData();
@@ -42,14 +44,15 @@ export default function Contact() {
 
     if (result.success) {
       setStatus("success");
-      reset(); // Reset form after success
+      reset();
     } else {
       setStatus("error");
     }
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-background relative">
+    <div className="min-h-screen flex items-center justify-center p-4 relative">
+      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_2px),linear-gradient(to_bottom,#f0f0f0_2px,transparent_1px)] bg-[size:6rem_4rem]"></div>
       <div className="container max-w-7xl w-full px-4">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -61,7 +64,6 @@ export default function Contact() {
         </motion.h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -71,39 +73,64 @@ export default function Contact() {
             <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
-                <label className="block text-muted-foreground mb-2">Full Name</label>
+                <label className="block text-muted-foreground mb-2">
+                  Full Name
+                </label>
                 <input
                   type="text"
                   {...register("name")}
                   className="w-full px-4 py-3 bg-muted/50 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
                   placeholder="John Doe"
                 />
-                {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
+                {errors.name && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.name.message}
+                  </p>
+                )}
               </div>
 
               <div>
-                <label className="block text-muted-foreground mb-2">Email</label>
+                <label className="block text-muted-foreground mb-2">
+                  Email
+                </label>
                 <input
                   type="email"
                   {...register("email")}
                   className="w-full px-4 py-3 bg-muted/50 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
                   placeholder="john@example.com"
                 />
-                {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
+                {errors.email && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.email.message}
+                  </p>
+                )}
               </div>
 
               <div>
-                <label className="block text-muted-foreground mb-2">Message</label>
+                <label className="block text-muted-foreground mb-2">
+                  Message
+                </label>
                 <textarea
                   {...register("message")}
                   className="w-full px-4 py-3 bg-muted/50 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none h-32"
                   placeholder="Your message..."
                 />
-                {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>}
+                {errors.message && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.message.message}
+                  </p>
+                )}
               </div>
 
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button type="submit" className="w-full gap-2 px-8 py-6 text-lg" disabled={isSubmitting}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button
+                  type="submit"
+                  className="w-full gap-2 px-8 py-6 text-lg"
+                  disabled={isSubmitting}
+                >
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </motion.div>
@@ -121,13 +148,14 @@ export default function Contact() {
                   </motion.p>
                 )}
                 {status === "error" && (
-                  <p className="text-red-500 text-sm mt-2">❌ Failed to send message.</p>
+                  <p className="text-red-500 text-sm mt-2">
+                    ❌ Failed to send message.
+                  </p>
                 )}
               </div>
             </form>
           </motion.div>
 
-          {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -167,7 +195,9 @@ export default function Contact() {
               </div>
 
               <div className="pt-6">
-                <h3 className="text-lg font-semibold mb-4">Social Connections</h3>
+                <h3 className="text-lg font-semibold mb-4">
+                  Social Connections
+                </h3>
                 <div className="flex gap-4">
                   <motion.a
                     href="https://www.linkedin.com/in/ansh-singh-484215253/"
@@ -199,7 +229,7 @@ export default function Contact() {
                   >
                     <Globe className="w-6 h-6" />
                   </motion.a>
-                  </div>
+                </div>
               </div>
             </div>
           </motion.div>

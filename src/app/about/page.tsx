@@ -1,13 +1,11 @@
-'use client';
-import { motion } from 'framer-motion';
-import { User, GraduationCap, Languages } from 'lucide-react';
+"use client";
+import { motion } from "framer-motion";
+import { User, GraduationCap, Languages } from "lucide-react";
 
 export default function About() {
   return (
     <div className="min-h-screen flex items-center justify-center p-4 relative">
-              <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_2px),linear-gradient(to_bottom,#f0f0f0_2px,transparent_1px)] bg-[size:6rem_4rem]"></div>
       <div className="container max-w-7xl w-full px-4">
-        {/* Page Title */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -17,9 +15,7 @@ export default function About() {
           About Me
         </motion.h1>
 
-        {/* Content Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Description Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -33,11 +29,12 @@ export default function About() {
               <h2 className="text-2xl font-bold">Description</h2>
             </div>
             <p className="text-muted-foreground">
-              I am a Full Stack Web devloper creating web applications with Next.js, Express.js, SQL/NoSQL and many more. I love to work on new creative problems and solve them 
+              I am a Full Stack Web devloper creating web applications with
+              Next.js, Express.js, SQL/NoSQL and many more. I love to work on
+              new creative problems and solve them
             </p>
           </motion.div>
 
-          {/* Education Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -52,17 +49,22 @@ export default function About() {
             </div>
             <div className="space-y-4">
               <div>
-                <h3 className="text-lg font-semibold">Bachelor of Technology in Computer Science Engineering</h3>
-                <p className="text-muted-foreground">SRM Institute of Science and Technology, 2022 - 2026</p>
+                <h3 className="text-lg font-semibold">
+                  Bachelor of Technology in Computer Science Engineering
+                </h3>
+                <p className="text-muted-foreground">
+                  SRM Institute of Science and Technology, 2022 - 2026
+                </p>
               </div>
               <div>
                 <h3 className="text-lg font-semibold">High School Diploma</h3>
-                <p className="text-muted-foreground">RPS International, 2020 - 2022</p>
+                <p className="text-muted-foreground">
+                  RPS International, 2020 - 2022
+                </p>
               </div>
             </div>
           </motion.div>
 
-          {/* Languages Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -78,14 +80,10 @@ export default function About() {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <span className="text-muted-foreground">English</span>
-               
-                
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-muted-foreground">Hindi</span>
-  
               </div>
-           
             </div>
           </motion.div>
         </div>

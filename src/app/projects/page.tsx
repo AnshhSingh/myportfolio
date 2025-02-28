@@ -8,9 +8,8 @@ const projects = [
     id: 1,
     title: "Ecom",
     description: "An ecom wbesite built using react with CMS.",
-    technologies: ["React.js", "Strapi", "Tailwind CSS"],
-    github: "https://github.com/AnshhSingh/Ecom",
-    live: "https://appproject-git-main-anshhsingh.vercel.app/", // Has live link
+    technologies: ["React.JS", "Strapi", "Tailwind CSS"],
+    github: "https://github.com/AnshhSingh/Ecom",// Has live link
   },
   {
     id: 2,
@@ -18,7 +17,7 @@ const projects = [
     description: "A decentralised voting app focusing on anonymity powered by blockchain",
     technologies: ["React.js", "Solidity", "Tailwind CS"],
     github: "https://github.com/AnshhSingh/votewiki",
-    live: "", // No live link
+    live: "", 
   },
   {
     id: 3,
@@ -26,14 +25,21 @@ const projects = [
     description: "Benchmark Arduino boards and determine performance using a score",
     technologies: ["Arduino"],
     github: "https://github.com/AnshhSingh/microcontrollerbench",
-    live: "", // No live link
+    live: "", 
+  },
+  {
+    id: 4,
+    title: "imageconv",
+    description: "High speed image conversion web app",
+    technologies: ["Next.JS","Express.js","sharp"],
+    github: "https://github.com/AnshhSingh/imageconv",
+    live: "", 
   },
 ];
 
 export default function Projects() {
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
-      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_2px),linear-gradient(to_bottom,#f0f0f0_2px,transparent_1px)] bg-[size:6rem_4rem]"></div>
       <motion.div 
         className="container max-w-7xl w-full px-4"
       >
@@ -46,7 +52,7 @@ export default function Projects() {
           My Projects
           </motion.h1>
 
-        {/* Projects Grid */}
+       
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
             <motion.div
@@ -74,11 +80,10 @@ export default function Projects() {
     </span>
   ))}
 </div>
-              {/* ... (keep existing project card code) */}
 
-              {/* Project Links */}
+             
               <div className="flex gap-4">
-                {/* GitHub Link (always visible) */}
+        
                 <motion.a
                   href={project.github}
                   target="_blank"
@@ -88,7 +93,7 @@ export default function Projects() {
                   <Github size={24} />
                 </motion.a>
 
-                {/* Live Link (conditionally rendered) */}
+          
                 {project.live && (
                   <motion.a
                     href={project.live}
