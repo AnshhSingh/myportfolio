@@ -23,7 +23,7 @@ const projects = [
   
   {
     id: 3,
-    title: "micro bench",
+    title: "Micro Bench",
     description: "Benchmark Arduino boards and determine performance using a score",
     technologies: ["Arduino"],
     github: "https://github.com/AnshhSingh/microcontrollerbench",
@@ -31,7 +31,7 @@ const projects = [
   },
   {
     id: 4,
-    title: "imageconv",
+    title: "Imageconv",
     description: "High speed image conversion web app",
     technologies: ["Next.JS","Express.js","sharp"],
     github: "https://github.com/AnshhSingh/imageconv",
@@ -41,7 +41,8 @@ const projects = [
 
 export default function Projects() {
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
+    <div className="min-h-screen flex items-center justify-center p-4 pt-20">
+      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_2px),linear-gradient(to_bottom,#f0f0f0_2px,transparent_1px)] bg-[size:6rem_4rem]"></div>
       <motion.div 
         className="container max-w-7xl w-full px-4"
       >

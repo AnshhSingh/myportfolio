@@ -1,98 +1,82 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Home, User, Brain, Folder, Mail } from "lucide-react";
 
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Skills", href: "/skills" },
-  { name: "Projects", href: "/projects" },
-  { name: "Contact Me", href: "/contact" },
+  { name: "Home", href: "/", icon: Home },
+  { name: "About", href: "/about", icon: User },
+  { name: "Skills", href: "/skills", icon: Brain },
+  { name: "Projects", href: "/projects", icon: Folder },
+  { name: "Contact", href: "/contact", icon: Mail },
 ];
 
+// Define the variants for icons with different states
+const iconVariants = {
+  rest: { scale: 1 },
+  active: { scale: 1.2 },
+  hover: { scale: 1.3, y: -3 },
+  tap: { scale: 0.9 },
+};
+
 const Header = () => {
-  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
-    <>
-      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_2px),linear-gradient(to_bottom,#f0f0f0_2px,transparent_1px)] bg-[size:6rem_4rem]"></div>
-      <motion.header
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className="bg-black shadow-lg p-4 sticky top-0 z-50 "
-      >
-        <div className="container mx-auto flex items-center justify-between">
-          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-            <Link
-              href="/"
-              className="text-2xl font-extrabold text-white tracking-wide"
+    <motion.header
+      initial={{ opacity: 0, y: -20 }}
+      animate={isMounted ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="bg-background/50 backdrop-blur-sm border border-primary/20 shadow-lg px-8 py-2 md:px-4 md:py-2 fixed top-4 left-1/2 -translate-x-1/2 rounded-full z-50 max-w-[360px] md:max-w-3xl"
+    >
+      <nav className="flex items-center justify-around md:justify-center md:gap-8">
+        {navLinks.map((link, index) => {
+          const isActive = pathname === link.href;
+          return (
+            <motion.div
+              key={link.name}
+              initial={{ scale: 0, opacity: 0 }}
+              animate={isMounted ? { scale: 1, opacity: 1 } : {}}
+              transition={{ delay: index * 0.1, type: "spring", stiffness: 260, damping: 20 }}
+              className="relative"
             >
-              MyPortfolio
-            </Link>
-          </motion.div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6 ml-auto">
-            {navLinks.map((link) => (
-              <motion.div
-                key={link.name}
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <Link
-                  href={link.href}
-                  className="text-gray-300 hover:text-white transition font-medium"
+              <Link href={link.href} className="p-3 md:p-1.5 block">
+                <motion.div
+                  variants={iconVariants}
+                  initial="rest"
+                  animate={isActive ? "active" : "rest"}
+                  whileHover="hover"
+                  whileTap="tap"
+                  className="relative flex items-center justify-center"
                 >
-                  {link.name}
-                </Link>
-              </motion.div>
-            ))}
-          </nav>
-
-          {/* Mobile Menu */}
-          <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild>
-              <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
-                <Button variant="ghost" size="icon" className="md:hidden">
-                  <Menu className="w-6 h-6 text-white" />
-                </Button>
-              </motion.div>
-            </SheetTrigger>
-            <SheetContent side="right" className="bg-black p-6 w-64 ">
-              <motion.nav
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="flex flex-col space-y-4"
-              >
-                {navLinks.map((link) => (
-                  <motion.div
-                    key={link.name}
-                    whileHover={{ scale: 1.1, x: 5 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Link
-                      href={link.href}
-                      className="text-gray-300 hover:text-white text-lg font-medium"
-                      onClick={() => setOpen(false)}
-                    >
-                      {link.name}
-                    </Link>
-                  </motion.div>
-                ))}
-              </motion.nav>
-            </SheetContent>
-          </Sheet>
-        </div>
-      </motion.header>
-    </>
+                  {isActive && (
+                    <motion.span
+                      layoutId="active-link"
+                      className="absolute inset-0 bg-primary/10 rounded-full"
+                      initial={false}
+                      transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
+                    />
+                  )}
+                  <link.icon
+                    className={`w-6 h-6 md:w-6 md:h-6 transition-colors ${
+                      isActive ? "text-primary" : "text-muted-foreground hover:text-primary"
+                    }`}
+                  />
+                </motion.div>
+              </Link>
+            </motion.div>
+          );
+        })}
+      </nav>
+    </motion.header>
   );
 };
 
