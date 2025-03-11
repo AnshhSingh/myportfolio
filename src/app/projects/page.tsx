@@ -20,16 +20,9 @@ const projects = [
     github: "https://github.com/AnshhSingh/RAG_PDF_Backend",
     live: "https://colab.research.google.com/drive/1Xha2XgoOQQ8oLurqG8-g0LyrIONF7fkd?usp=sharing", 
   },
+  
   {
     id: 3,
-    title: "Ecom",
-    description: "An ecom wbesite built using react with CMS.",
-    technologies: ["React.JS", "Strapi", "Tailwind CSS"],
-    github: "https://github.com/AnshhSingh/Ecom",
-    live: "", 
-  },
-  {
-    id: 4,
     title: "micro bench",
     description: "Benchmark Arduino boards and determine performance using a score",
     technologies: ["Arduino"],
@@ -37,7 +30,7 @@ const projects = [
     live: "", 
   },
   {
-    id: 5,
+    id: 4,
     title: "imageconv",
     description: "High speed image conversion web app",
     technologies: ["Next.JS","Express.js","sharp"],
