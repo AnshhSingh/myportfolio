@@ -14,7 +14,7 @@ const projects = [
   },
   {
     id: 2,
-    title: "Votewiki",
+    title: "PDF RAG",
     description: "Allows users to upload and parse PDFsand then query indexed document content using LlamaIndex to process request",
     technologies: ["React.js", "Python", "Fastapi", "huggingface LLM", "Llamaindex"],
     github: "https://github.com/AnshhSingh/RAG_PDF_Backend",
