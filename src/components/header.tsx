@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Home, User, Brain, Folder, Mail } from "lucide-react";
 
@@ -14,7 +13,6 @@ const navLinks = [
   { name: "Contact", href: "/contact", icon: Mail },
 ];
 
-// Define the variants for icons with different states
 const iconVariants = {
   rest: { scale: 1 },
   active: { scale: 1.2 },
@@ -24,27 +22,23 @@ const iconVariants = {
 
 const Header = () => {
   const pathname = usePathname();
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
   return (
     <motion.header
       initial={{ opacity: 0, y: -20 }}
-      animate={isMounted ? { opacity: 1, y: 0 } : {}}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="bg-background/50 backdrop-blur-sm border border-primary/20 shadow-lg px-8 py-2 md:px-4 md:py-2 fixed top-4 left-1/2 -translate-x-1/2 rounded-full z-50 max-w-[360px] md:max-w-3xl"
     >
       <nav className="flex items-center justify-around md:justify-center md:gap-8">
         {navLinks.map((link, index) => {
           const isActive = pathname === link.href;
+
           return (
             <motion.div
               key={link.name}
               initial={{ scale: 0, opacity: 0 }}
-              animate={isMounted ? { scale: 1, opacity: 1 } : {}}
+              animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: index * 0.1, type: "spring", stiffness: 260, damping: 20 }}
               className="relative"
             >
@@ -61,7 +55,6 @@ const Header = () => {
                     <motion.span
                       layoutId="active-link"
                       className="absolute inset-0 bg-primary/10 rounded-full"
-                      initial={false}
                       transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
                     />
                   )}
