@@ -61,25 +61,16 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
-  verification: {
-    // Add verification codes for search engines if you have them
-    google: 'google-site-verification-code', // Replace with your verification code
-  },
-  alternates: {
-    canonical: 'https://anshsingh.live',
-  },
+  },  
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
-  return (
+}>) {  return (
     <html lang="en" className="m-0 scroll-smooth">
       <head>
-        <link rel="canonical" href="https://anshsingh.live" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ffffff" />
         <link rel="manifest" href="/manifest.json" />
