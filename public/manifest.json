@@ -1,0 +1,15 @@
+{
+  "name": "Ansh Singh Portfolio",
+  "short_name": "Ansh Singh",
+  "description": "Portfolio website of Ansh Singh, Web Developer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}

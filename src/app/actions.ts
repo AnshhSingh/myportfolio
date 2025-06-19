@@ -38,3 +38,64 @@ export async function sendContactForm(data: FormData) {
     return { success: false, message: `Failed to send email.Try again later.: ${error}` };
   }
 }
+
+// Generate dynamic meta description based on content
+export async function generateMetaDescription(content: string): Promise<string> {
+  // Trim content to a reasonable length for meta description (150-160 characters)
+  const trimmed = content.substring(0, 157).trim();
+  return trimmed.length < content.length ? `${trimmed}...` : trimmed;
+}
+
+// Function to add structured data testing to log
+export async function logStructuredDataTest(data: Record<string, unknown>, type: string): Promise<boolean> {
+  if (!data['@context'] || !data['@type']) {
+    console.error(`Invalid structured data for ${type}: Missing required properties`);
+    return false;
+  }
+  
+  // Check for minimum required properties based on type
+  let isValid = true;
+  
+  switch (data['@type']) {
+    case 'Person':
+      isValid = !!data.name && !!data.url;
+      break;
+    case 'WebSite':
+      isValid = !!data.name && !!data.url;
+      break;
+    case 'BreadcrumbList':
+      isValid = Array.isArray(data.itemListElement) && data.itemListElement.length > 0;
+      break;
+    case 'FAQPage':
+      isValid = Array.isArray(data.mainEntity) && data.mainEntity.length > 0;
+      break;
+    case 'SoftwareApplication':
+      isValid = !!data.name && !!data.description;
+      break;
+    default:
+      console.warn(`Unknown schema type: ${data['@type']}`);
+      isValid = true; // Allow custom types
+  }
+  
+  if (!isValid) {
+    console.error(`Invalid structured data for ${type}: Missing required properties for type ${data['@type']}`);
+  }
+  
+  return isValid;
+}
+
+// Generate a sitemap URL entry with lastmod date
+export async function getSitemapUrl(path: string, priority: number = 0.5, changeFrequency: string = 'monthly'): Promise<{
+  url: string;
+  lastModified: Date;
+  changeFrequency: string;
+  priority: number;
+}> {
+  const baseUrl = 'https://anshsingh.live';
+  return {
+    url: `${baseUrl}${path}`,
+    lastModified: new Date(),
+    changeFrequency,
+    priority,
+  };
+}
