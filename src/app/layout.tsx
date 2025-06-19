@@ -12,24 +12,21 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const geistMono = Geist_Mono({  variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Ansh Singh | SRM University Student & Web Developer",
+  title: "Ansh Singh | Developer Portfolio",
   description: "Portfolio of Ansh Singh, Computer Science Engineering student at SRM Institute of Science and Technology (SRMIST), Chennai. Showcasing web development projects using React, Next.js, and modern technologies.",
   keywords: ["Ansh Singh", "Ansh Singh SRM", "SRM student", "SRM Institute of Science and Technology", "SRMIST", "web developer", "React developer", "Next.js", "portfolio", "JavaScript", "TypeScript", "Chennai", "Computer Science Engineering", "student portfolio"],
-  authors: [{ name: "Ansh Singh", url: "https://anshsingh.live" }],
-  creator: "Ansh Singh",
-  publisher: "Ansh Singh",
-  formatDetection: {
+  authors: [{ name: "Ansh Singh", url: "https://anshsingh.live" }],  creator: "Ansh Singh",
+  publisher: "Ansh Singh",  formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },    openGraph: {
-    title: "Ansh Singh | SRM University Student & Web Developer",
+    title: "Ansh Singh | Web Developer",
     description: "Portfolio of Ansh Singh, Computer Science Engineering student at SRM Institute of Science and Technology (SRMIST), Chennai. Projects in React, Next.js, and modern web technologies.",
     url: 'https://anshsingh.live',
     siteName: 'Ansh Singh - SRM Student Portfolio',
@@ -46,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ansh Singh | SRM University Student & Developer',
+    title: 'Ansh Singh',
     description: 'Portfolio of Ansh Singh, Computer Science student at SRM Institute of Science and Technology. Web development projects and skills.',
     images: ['https://anshsingh.live/me.jpeg'],
     creator: '@ansh50421466',
@@ -71,7 +68,6 @@ export default function RootLayout({
 }>) {  return (
     <html lang="en" className="m-0 scroll-smooth">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ffffff" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/favicon.ico" />
