@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({  variable: "--font-geist-mono",
 
 export const metadata: Metadata = {
   title: "Ansh Singh | Developer Portfolio",
-  description: "Portfolio of Ansh Singh, Computer Science Engineering student at SRM Institute of Science and Technology (SRMIST), Chennai. Showcasing web development projects using React, Next.js, and modern technologies.",
+  description: "Portfolio of Ansh Singh, student at SRM Institute of Science and Technology (SRMIST), Chennai. Showcasing web development projects",
   keywords: ["Ansh Singh", "Ansh Singh SRM", "SRM student", "SRM Institute of Science and Technology", "SRMIST", "web developer", "React developer", "Next.js", "portfolio", "JavaScript", "TypeScript", "Chennai", "Computer Science Engineering", "student portfolio"],
   authors: [{ name: "Ansh Singh", url: "https://anshsingh.live" }],  creator: "Ansh Singh",
   publisher: "Ansh Singh",  formatDetection: {
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },    openGraph: {
-    title: "Ansh Singh | Web Developer",
-    description: "Portfolio of Ansh Singh, Computer Science Engineering student at SRM Institute of Science and Technology (SRMIST), Chennai. Projects in React, Next.js, and modern web technologies.",
+    title: "Ansh Singh | Developer Portfolio",
+    description: "Portfolio of Ansh Singh, student at SRM Institute of Science and Technology (SRMIST), Chennai. Showcasing web development projects",
     url: 'https://anshsingh.live',
     siteName: 'Ansh Singh - SRM Student Portfolio',
     images: [
