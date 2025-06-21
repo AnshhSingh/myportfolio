@@ -41,11 +41,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     },
+
     {
-      url: `${baseUrl}/ansh-singh`,
+      url: `${baseUrl}/ansh_resume.pdf`,
       lastModified: lastMod,
-      changeFrequency: 'weekly' as const,
-      priority: 0.9,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
     },
   ]
   
