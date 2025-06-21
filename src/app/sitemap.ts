@@ -9,8 +9,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: baseUrl,
       lastModified: lastMod,
-      changeFrequency: 'monthly' as const,
-      priority: 1,
+      changeFrequency: 'daily' as const, // Higher frequency for the homepage
+      priority: 1.0, // Maximum priority for the homepage
     },
     {
       url: `${baseUrl}/about`,
@@ -35,14 +35,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: lastMod,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
-    },
-    {
+    },    {
       url: `${baseUrl}/links`,
       lastModified: lastMod,
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     },
-
+    {
+      url: `${baseUrl}/ansh-singh`,
+      lastModified: lastMod,
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
   ]
   
   return routes

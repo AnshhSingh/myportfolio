@@ -1,9 +1,7 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
+import { defaultViewport } from '@/lib/viewport';
 
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-};
+export const viewport = defaultViewport;
 
 export const metadata: Metadata = {
   title: "Contact Ansh Singh | Get In Touch",

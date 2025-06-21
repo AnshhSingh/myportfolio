@@ -3,7 +3,9 @@ export function generateJsonLd() {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Ansh Singh",
-    "alternateName": ["Ansh Singh SRM", "Ansh Singh Chennai"],
+    "givenName": "Ansh",
+    "familyName": "Singh",
+    "alternateName": ["Ansh Singh SRM", "Ansh Singh Chennai", "Ansh Singh Developer"],
     "url": "https://anshsingh.live",
     "image": "https://anshsingh.live/me.jpeg",
     "sameAs": [
@@ -13,8 +15,8 @@ export function generateJsonLd() {
       "https://x.com/ansh50421466",
       "https://www.geeksforgeeks.org/user/user_41sajic4oat/"
     ],
-    "jobTitle": "Computer Science Student & Web Developer",
-    "description": "Ansh Singh, Computer Science Engineering student at SRM Institute of Science and Technology (SRMIST), Chennai. Specializing in web development with React, Next.js, and modern JavaScript frameworks.",
+    "jobTitle": "Computer Science Student & Full Stack Developer",
+    "description": "Ansh Singh is a Computer Science Engineering student at SRM Institute of Science and Technology (SRMIST), Chennai. Specializing in web development with React, Next.js, and modern JavaScript frameworks, Ansh Singh creates responsive and innovative web applications.",
     "skills": "Web Development, React, Next.js, JavaScript, TypeScript, Node.js, MongoDB, PostgreSQL",
     "knowsAbout": [
       "Web Development",
