@@ -7,18 +7,27 @@ import React from "react";
 
 const projects = [
 	{
-		id: 1,
+	id: 1,
+		title: "Memegen",
+		description: "Create memes with latest things around the world in a minute!",
+		technologies: ["Next.js","Supabase","AWS S3", "GemniAPI", "Azure AI foundry"],
+		github: "https://github.com/AnshhSingh/memegen", // Has live link
+		live: "https://meme.anshsingh.live/",
+	},
+	
+	{
+		id: 2,
 		title: "Ecom",
-		description: "An ecom wbesite built using react with CMS.",
+		description: "An ecom website built using react with CMS.",
 		technologies: ["React.JS", "Strapi", "Tailwind CSS"],
 		github: "https://github.com/AnshhSingh/Ecom", // Has live link
 		live: "https://appproject-git-main-anshhsingh.vercel.app/",
 	},
 	{
-		id: 2,
+		id: 3,
 		title: "PDF RAG",
 		description:
-			"Allows users to upload and parse PDFs and then query indexed document content using LlamaIndex to process request",
+			"Allows users to upload and parse PDFs and then query document content using LlamaIndex a vector RAG implementation",
 		technologies: [
 			"React.js",
 			"Python",
@@ -31,7 +40,7 @@ const projects = [
 	},
 
 	{
-		id: 3,
+		id: 4,
 		title: "Micro Bench",
 		description: "Benchmark Arduino boards and determine performance using a score",
 		technologies: ["Arduino"],
@@ -39,7 +48,7 @@ const projects = [
 		live: "",
 	},
 	{
-		id: 4,
+		id: 5,
 		title: "Imageconv",
 		description: "High speed image conversion web app",
 		technologies: ["Next.JS", "Express.js", "sharp"],
