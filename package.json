@@ -32,9 +32,28 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "critters": "^0.0.23",
     "eslint": "^9",
     "eslint-config-next": "15.2.0",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "browserslist": {
+    "production": [
+      "supports es6-module",
+      "supports es6-module-dynamic-import",
+      "last 2 Chrome versions",
+      "last 2 Edge versions",
+      "last 2 Firefox versions",
+      "last 2 Safari versions",
+      "last 2 iOS versions",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 Chrome version",
+      "last 1 Firefox version",
+      "last 1 Safari version"
+    ]
   }
 }

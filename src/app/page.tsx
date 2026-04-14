@@ -56,7 +56,8 @@ function Portfolio() {
                 alt="Ansh's portrait"
                 fill
                 className="object-cover"
-                // Remove priority if not critical for initial load
+                priority
+                fetchPriority="high"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </motion.div>
