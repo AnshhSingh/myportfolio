@@ -1,15 +1,16 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from "next";
+
+const BASE_URL = "https://anshsingh.live";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/private/', '/admin/'],
+        userAgent: "*",
+        allow: "/",
       },
     ],
-    sitemap: 'https://anshsingh.live/sitemap.xml',
-    host: 'https://anshsingh.live',
-  }
+    sitemap: `${BASE_URL}/sitemap.xml`,
+    host: BASE_URL,
+  };
 }

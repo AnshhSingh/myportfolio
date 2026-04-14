@@ -41,7 +41,7 @@ export function generateJsonLd() {
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://anshsingh.live/about"
+      "@id": "https://anshsingh.live/"
     },
     "address": {
       "@type": "PostalAddress",
@@ -77,7 +77,6 @@ export function generatePortfolioJsonLd() {
     },
     "inLanguage": "en-US",
     "copyrightYear": new Date().getFullYear(),
-    "dateModified": new Date().toISOString(),
     "keywords": "Ansh Singh, Ansh Singh SRM, SRM Institute of Science and Technology, student portfolio, Chennai student developer, React developer, Next.js projects, Computer Science Engineering, JavaScript, TypeScript, web development, SRM University, SRMIST",
     "creator": {
       "@type": "Person",

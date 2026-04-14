@@ -1,77 +1,31 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "../components/header";
 import { Analytics } from "@vercel/analytics/react";
 import BreadcrumbsClientWrapper from "@/components/BreadcrumbsClientWrapper";
-import { generateJsonLd, generatePortfolioJsonLd, generatePortfolioProjectsJsonLd, generateFAQJsonLd } from "@/lib/json-ld";
+import { generateJsonLd, generatePortfolioJsonLd } from "@/lib/json-ld";
 // import ThemeSwitcher from "@/components/Themeswitch";
+
+export { metadata, viewport } from "./metadata";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({  variable: "--font-geist-mono",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
-export const metadata: Metadata = {
-  title: "Ansh Singh | Developer Portfolio",
-  description: "Portfolio of Ansh Singh, student at SRM Institute of Science and Technology (SRMIST), Chennai. Showcasing web development projects",
-  keywords: ["Ansh Singh", "Ansh Singh SRM", "SRM student", "SRM Institute of Science and Technology", "SRMIST", "web developer", "React developer", "Next.js", "portfolio", "JavaScript", "TypeScript", "Chennai", "Computer Science Engineering", "student portfolio"],
-  authors: [{ name: "Ansh Singh", url: "https://anshsingh.live" }],  creator: "Ansh Singh",
-  publisher: "Ansh Singh",  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },    openGraph: {
-    title: "Ansh Singh | Developer Portfolio",
-    description: "Portfolio of Ansh Singh, student at SRM Institute of Science and Technology (SRMIST), Chennai. Showcasing web development projects",
-    url: 'https://anshsingh.live',
-    siteName: 'Ansh Singh - SRM Student Portfolio',
-    images: [
-      {
-        url: 'https://anshsingh.live/me.jpeg',
-        width: 800,
-        height: 800,
-        alt: 'Ansh Singh - SRM University Student',
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Ansh Singh',
-    description: 'Portfolio of Ansh Singh, Computer Science student at SRM Institute of Science and Technology. Web development projects and skills.',
-    images: ['https://anshsingh.live/me.jpeg'],
-    creator: '@ansh50421466',
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },  
-};
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {  return (
+}>) {
+  return (
     <html lang="en" className="m-0 scroll-smooth">
       <head>
-        <meta name="theme-color" content="#ffffff" />
-        <link rel="manifest" href="/manifest.json" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/favicon.ico" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(generateJsonLd()) }}
@@ -79,14 +33,6 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(generatePortfolioJsonLd()) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(generatePortfolioProjectsJsonLd()) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQJsonLd()) }}
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
