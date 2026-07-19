@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "../components/header";
 import { Analytics } from "@vercel/analytics/react";
@@ -12,14 +12,16 @@ export { metadata, viewport } from "./metadata";
 export const dynamic = "force-static";
 export const revalidate = 86400;
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetBrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export default function RootLayout({
@@ -39,7 +41,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(generatePortfolioJsonLd()) }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased transition-colors duration-300`}>
+      <body className={`${inter.variable} ${jetBrainsMono.variable} antialiased transition-colors duration-300`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

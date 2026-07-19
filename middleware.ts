@@ -18,11 +18,7 @@ export const middleware: NextMiddleware = (req: NextRequest) => {
 
   // Add preload for critical resources
   if (req.nextUrl.pathname === '/') {
-    // Preload critical fonts
-    response.headers.append(
-      'Link',
-      '</fonts/geist.woff2>; rel=preload; as=font; crossorigin'
-    )
+    // Preloads are handled automatically by next/font/google, so we no longer manually preload fonts here
     
     // Preload hero image
     response.headers.append(
