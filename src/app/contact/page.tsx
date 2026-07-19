@@ -66,20 +66,20 @@ export default function Contact() {
   }
 
   return (
-    <div className="py-20 min-h-screen">
+    <div className="py-12 md:py-20 min-h-screen">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.div variants={itemVariants} className="mb-20">
+        <motion.div variants={itemVariants} className="mb-12 md:mb-20">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6">Contact</h1>
           <p className="text-lg text-muted-foreground max-w-xl">
             Let&apos;s build something extraordinary together.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
           <motion.div variants={itemVariants} className="lg:col-span-7">
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-12">
               <div className="relative group">
@@ -92,7 +92,7 @@ export default function Contact() {
                 />
                 <label 
                   htmlFor="name" 
-                  className="absolute left-0 -top-6 text-sm font-mono text-muted-foreground transition-all peer-placeholder-shown:text-lg peer-placeholder-shown:top-4 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-foreground cursor-text"
+                  className="absolute left-0 -top-6 text-sm font-mono text-muted-foreground transition-all peer-placeholder-shown:text-lg peer-placeholder-shown:top-4 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-foreground cursor-text bg-background/0 px-1 -mx-1"
                 >
                   Name
                 </label>
@@ -117,7 +117,7 @@ export default function Contact() {
                 />
                 <label 
                   htmlFor="email" 
-                  className="absolute left-0 -top-6 text-sm font-mono text-muted-foreground transition-all peer-placeholder-shown:text-lg peer-placeholder-shown:top-4 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-foreground cursor-text"
+                  className="absolute left-0 -top-6 text-sm font-mono text-muted-foreground transition-all peer-placeholder-shown:text-lg peer-placeholder-shown:top-4 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-foreground cursor-text bg-background/0 px-1 -mx-1"
                 >
                   Email
                 </label>
@@ -141,7 +141,7 @@ export default function Contact() {
                 />
                 <label 
                   htmlFor="message" 
-                  className="absolute left-0 -top-6 text-sm font-mono text-muted-foreground transition-all peer-placeholder-shown:text-lg peer-placeholder-shown:top-4 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-foreground cursor-text"
+                  className="absolute left-0 -top-6 text-sm font-mono text-muted-foreground transition-all peer-placeholder-shown:text-lg peer-placeholder-shown:top-4 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-foreground cursor-text bg-background/0 px-1 -mx-1"
                 >
                   Message
                 </label>

@@ -49,7 +49,7 @@ export default function Header() {
         AnshSingh.
       </Link>
       
-      <nav ref={navRef} className="relative flex items-center gap-6 md:gap-8 text-sm font-medium">
+      <nav ref={navRef} className="relative flex items-center gap-2 sm:gap-6 md:gap-8 text-sm font-medium">
         {/* Desktop Sliding Indicator */}
         <motion.div
           className="absolute -bottom-[17px] h-[1px] bg-foreground hidden md:block"
@@ -70,11 +70,11 @@ export default function Header() {
               href={link.path}
               prefetch={true}
               data-active={isActive}
-              className={`relative py-2 transition-colors ${
+              className={`relative p-2 md:py-2 transition-colors ${
                 isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              <span className="md:hidden">{link.icon}</span>
+              <span className="md:hidden flex items-center justify-center">{link.icon}</span>
               <span className="hidden md:block">{link.name}</span>
               
               {/* Mobile dot indicator */}

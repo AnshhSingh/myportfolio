@@ -62,13 +62,13 @@ const itemVariants = {
 
 export default function Projects() {
   return (
-    <div className="py-20 min-h-screen">
+    <div className="py-12 md:py-20 min-h-screen">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.div variants={itemVariants} className="mb-20">
+        <motion.div variants={itemVariants} className="mb-12 md:mb-20">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6">Selected Works</h1>
           <p className="text-lg text-muted-foreground max-w-xl">
             A curated collection of projects highlighting my expertise in web development and artificial intelligence.
@@ -97,12 +97,12 @@ export default function Projects() {
               </div>
               <div className="mt-8 md:mt-0 flex flex-col items-start md:items-end gap-3 shrink-0">
                 {project.live ? (
-                   <a href={project.live} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-sm font-medium hover:text-muted-foreground transition-colors group/link">
+                   <a href={project.live} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-sm font-medium hover:text-muted-foreground transition-colors group/link p-2 -m-2 md:p-0 md:m-0">
                      Live Site <ArrowUpRight size={16} className="transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1" />
                    </a>
                 ) : null}
                 {project.github ? (
-                   <a href={project.github} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-sm font-medium hover:text-muted-foreground transition-colors group/link">
+                   <a href={project.github} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-sm font-medium hover:text-muted-foreground transition-colors group/link p-2 -m-2 md:p-0 md:m-0">
                      Source Code <ArrowUpRight size={16} className="transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1" />
                    </a>
                 ) : null}

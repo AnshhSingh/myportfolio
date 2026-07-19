@@ -23,7 +23,7 @@ const containerVariants = {
 
 export default function Portfolio() {
   return (
-    <div className="flex flex-col justify-center min-h-[calc(100vh-200px)] py-20">
+    <div className="flex flex-col justify-center min-h-[calc(100vh-200px)] py-12 md:py-20">
       <div className="max-w-3xl">
         <div className="mb-6 hero-animate hero-delay-0">
           <span className="text-muted-foreground font-mono text-sm tracking-tight uppercase">Full Stack Developer</span>
@@ -54,9 +54,9 @@ export default function Portfolio() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8, duration: 1 }}
-        className="mt-32 border-t border-border/40 pt-12"
+        className="mt-20 md:mt-32 border-t border-border/40 pt-8 md:pt-12"
       >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <Link href="/about" prefetch={true} className="group block">
             <h3 className="text-lg font-medium mb-3 flex items-center justify-between border-b border-transparent group-hover:border-border/50 pb-2 transition-all">
               About 

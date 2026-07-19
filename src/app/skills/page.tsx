@@ -28,20 +28,20 @@ const itemVariants = {
 
 export default function Skills() {
   return (
-    <div className="py-20 min-h-screen">
+    <div className="py-12 md:py-20 min-h-screen">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.div variants={itemVariants} className="mb-20">
+        <motion.div variants={itemVariants} className="mb-12 md:mb-20">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6">Technical Arsenal</h1>
           <p className="text-lg text-muted-foreground max-w-xl">
             A comprehensive overview of the tools, languages, and frameworks I use to bring ideas to life.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8">
           {Object.entries(skills).map(([category, items]) => (
             <motion.div key={category} variants={itemVariants}>
               <h2 className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-8 border-b border-border/40 pb-4">

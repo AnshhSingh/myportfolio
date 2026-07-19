@@ -22,27 +22,27 @@ const itemVariants = {
 
 export default function About() {
   return (
-    <div className="py-20 min-h-screen">
+    <div className="py-12 md:py-20 min-h-screen">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
         className="max-w-5xl"
       >
-        <motion.div variants={itemVariants} className="mb-20">
+        <motion.div variants={itemVariants} className="mb-12 md:mb-20">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6">About</h1>
           <p className="text-lg text-muted-foreground max-w-xl">
             The story behind the code.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
           <motion.div variants={itemVariants} className="md:col-span-4">
             <div className="sticky top-32">
               <h2 className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-8">
                 Background
               </h2>
-              <div className="relative w-full aspect-[3/4] overflow-hidden bg-muted/20">
+              <div className="relative w-full aspect-square md:aspect-[3/4] overflow-hidden bg-muted/20">
                 <Image 
                   src="/me.jpeg" 
                   alt="Ansh Singh" 
@@ -70,7 +70,7 @@ export default function About() {
           </motion.div>
         </div>
         
-        <motion.div variants={itemVariants} className="mt-32 pt-12 border-t border-border/40 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+        <motion.div variants={itemVariants} className="mt-16 md:mt-32 pt-12 border-t border-border/40 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-8">
           <div className="md:col-span-4">
             <h2 className="text-sm font-mono uppercase tracking-widest text-muted-foreground">
               Experience
@@ -162,7 +162,7 @@ export default function About() {
           </div>
         </motion.div>
         
-        <motion.div variants={itemVariants} className="mt-32 pt-12 border-t border-border/40 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+        <motion.div variants={itemVariants} className="mt-16 md:mt-32 pt-12 border-t border-border/40 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-8">
           <div className="md:col-span-4">
             <h2 className="text-sm font-mono uppercase tracking-widest text-muted-foreground">
               Education
@@ -175,7 +175,7 @@ export default function About() {
           </div>
         </motion.div>
         
-        <motion.div variants={itemVariants} className="mt-16 pt-12 border-t border-border/40 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+        <motion.div variants={itemVariants} className="mt-16 pt-12 border-t border-border/40 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-8">
           <div className="md:col-span-4">
             <h2 className="text-sm font-mono uppercase tracking-widest text-muted-foreground">
               Languages

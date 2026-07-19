@@ -6,6 +6,7 @@ import BreadcrumbsClientWrapper from "@/components/BreadcrumbsClientWrapper";
 import { generateJsonLd, generatePortfolioJsonLd } from "@/lib/json-ld";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import ThemeSwitcher from "@/components/Themeswitch";
+import SwipeNavigation from "@/components/SwipeNavigation";
 import Link from "next/link";
 export { metadata, viewport } from "./metadata";
 export const dynamic = "force-static";
@@ -57,7 +58,9 @@ export default function RootLayout({
           
           <div className="w-full max-w-5xl mx-auto px-6 md:px-12 lg:px-24 min-h-[calc(100vh-140px)]">
             <BreadcrumbsClientWrapper />
-            <main>{children}</main>
+            <SwipeNavigation>
+              <main>{children}</main>
+            </SwipeNavigation>
           </div>
           
           <footer className="py-12 mt-auto border-t border-border/40">
