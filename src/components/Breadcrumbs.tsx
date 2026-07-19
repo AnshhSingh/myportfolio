@@ -14,7 +14,7 @@ export default function Breadcrumbs() {
     <nav className="flex py-3 text-sm" aria-label="Breadcrumb">
       <ol className="flex items-center space-x-1">
         <li>
-          <Link href="/" className="text-muted-foreground hover:text-foreground">
+          <Link href="/" prefetch={true} className="text-muted-foreground hover:text-foreground">
             Home
           </Link>
         </li>
@@ -29,7 +29,7 @@ export default function Breadcrumbs() {
               {isLast ? (
                 <span className="font-medium">{path.charAt(0).toUpperCase() + path.slice(1)}</span>
               ) : (
-                <Link href={href} className="text-muted-foreground hover:text-foreground">
+                <Link href={href} prefetch={true} className="text-muted-foreground hover:text-foreground">
                   {path.charAt(0).toUpperCase() + path.slice(1)}
                 </Link>
               )}

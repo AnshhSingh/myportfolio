@@ -4,10 +4,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
-// import { Mail, Phone, MapPin } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { sendContactForm } from "../actions";
-import { Mail, Phone, MapPin, Linkedin, Github, Globe } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { z } from "zod";
 
 const contactSchema = z.object({
@@ -15,6 +13,23 @@ const contactSchema = z.object({
   email: z.string().email("Invalid email address"),
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+  }
+};
 
 export default function Contact() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -51,190 +66,170 @@ export default function Contact() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 relative pt-20">
-      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_2px),linear-gradient(to_bottom,#f0f0f0_2px,transparent_1px)] bg-[size:6rem_4rem]"></div>
-      <div className="container max-w-7xl w-full px-4">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-4xl md:text-6xl font-bold tracking-tight text-center mb-12 md:mb-16"
-        >
-          Get in Touch
-        </motion.h1>
+    <div className="py-20 min-h-screen">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.div variants={itemVariants} className="mb-20">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6">Contact</h1>
+          <p className="text-lg text-muted-foreground max-w-xl">
+            Let&apos;s build something extraordinary together.
+          </p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="bg-card rounded-xl border border-primary/20 p-6 shadow-lg"
-          >
-            <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              <div>
-                <label className="block text-muted-foreground mb-2">
-                  Full Name
-                </label>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8">
+          <motion.div variants={itemVariants} className="lg:col-span-7">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-12">
+              <div className="relative group">
                 <input
                   type="text"
+                  id="name"
                   {...register("name")}
-                  className="w-full px-4 py-3 bg-muted/50 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
-                  placeholder="John Doe"
+                  className="w-full bg-transparent border-b border-border/40 py-4 text-lg focus:outline-none focus:border-foreground transition-colors peer placeholder-transparent"
+                  placeholder="Name"
                 />
-                {errors.name && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.name.message}
-                  </p>
-                )}
+                <label 
+                  htmlFor="name" 
+                  className="absolute left-0 -top-6 text-sm font-mono text-muted-foreground transition-all peer-placeholder-shown:text-lg peer-placeholder-shown:top-4 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-foreground cursor-text"
+                >
+                  Name
+                </label>
+                {errors.name ? (
+                  <motion.p 
+                    initial={{ opacity: 0, y: -5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-red-600/70 dark:text-red-400/70 text-sm mt-2 font-mono"
+                  >
+                    {errors.name.message as string}
+                  </motion.p>
+                ) : null}
               </div>
 
-              <div>
-                <label className="block text-muted-foreground mb-2">
-                  Email
-                </label>
+              <div className="relative group">
                 <input
                   type="email"
+                  id="email"
                   {...register("email")}
-                  className="w-full px-4 py-3 bg-muted/50 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none"
-                  placeholder="john@example.com"
+                  className="w-full bg-transparent border-b border-border/40 py-4 text-lg focus:outline-none focus:border-foreground transition-colors peer placeholder-transparent"
+                  placeholder="Email"
                 />
-                {errors.email && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.email.message}
-                  </p>
-                )}
+                <label 
+                  htmlFor="email" 
+                  className="absolute left-0 -top-6 text-sm font-mono text-muted-foreground transition-all peer-placeholder-shown:text-lg peer-placeholder-shown:top-4 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-foreground cursor-text"
+                >
+                  Email
+                </label>
+                {errors.email ? (
+                  <motion.p 
+                    initial={{ opacity: 0, y: -5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-red-600/70 dark:text-red-400/70 text-sm mt-2 font-mono"
+                  >
+                    {errors.email.message as string}
+                  </motion.p>
+                ) : null}
+              </div>
+
+              <div className="relative group">
+                <textarea
+                  id="message"
+                  {...register("message")}
+                  className="w-full bg-transparent border-b border-border/40 py-4 text-lg focus:outline-none focus:border-foreground transition-colors peer placeholder-transparent min-h-[120px] resize-none"
+                  placeholder="Message"
+                />
+                <label 
+                  htmlFor="message" 
+                  className="absolute left-0 -top-6 text-sm font-mono text-muted-foreground transition-all peer-placeholder-shown:text-lg peer-placeholder-shown:top-4 peer-focus:-top-6 peer-focus:text-sm peer-focus:text-foreground cursor-text"
+                >
+                  Message
+                </label>
+                {errors.message ? (
+                  <motion.p 
+                    initial={{ opacity: 0, y: -5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-red-600/70 dark:text-red-400/70 text-sm mt-2 font-mono"
+                  >
+                    {errors.message.message as string}
+                  </motion.p>
+                ) : null}
               </div>
 
               <div>
-                <label className="block text-muted-foreground mb-2">
-                  Message
-                </label>
-                <textarea
-                  {...register("message")}
-                  className="w-full px-4 py-3 bg-muted/50 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none h-32"
-                  placeholder="Your message..."
-                />
-                {errors.message && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.message.message}
-                  </p>
-                )}
-              </div>
-
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button
+                <button
                   type="submit"
-                  className="w-full gap-2 px-8 py-6 text-lg"
                   disabled={isSubmitting}
+                  className="group flex items-center gap-2 font-medium text-lg disabled:opacity-50"
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
-                </Button>
-              </motion.div>
+                  {!isSubmitting ? <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" /> : null}
+                </button>
+              </div>
 
-              {/* Success & Error Messages */}
               <div aria-live="polite">
-                {status === "success" && (
+                {status === "success" ? (
                   <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5 }}
-                    className="text-green-500 text-sm mt-2"
+                    initial={{ opacity: 0, y: -5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-emerald-600/70 dark:text-emerald-400/70 font-mono text-sm mt-4"
                   >
-                    ✅ Message sent successfully!
+                    Message sent successfully.
                   </motion.p>
-                )}
-                {status === "error" && (
-                  <p className="text-red-500 text-sm mt-2">
-                    ❌ Failed to send message.
-                  </p>
-                )}
+                ) : null}
+                {status === "error" ? (
+                  <motion.p
+                    initial={{ opacity: 0, y: -5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-red-600/70 dark:text-red-400/70 font-mono text-sm mt-4"
+                  >
+                    Failed to send message. Please try again.
+                  </motion.p>
+                ) : null}
               </div>
             </form>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="bg-card rounded-xl border border-primary/20 p-6 shadow-lg"
-          >
-            <h2 className="text-2xl font-bold mb-6">Contact Info</h2>
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-primary/10 rounded-lg text-primary">
-                  <Mail className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="text-muted-foreground">Email</p>
-                  <p className="font-medium">anshsingh25bd@gmail.com</p>
-                </div>
+          <motion.div variants={itemVariants} className="lg:col-span-4 lg:col-start-9 space-y-12 pt-4">
+            <div>
+              <h2 className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-6 border-b border-border/40 pb-4">
+                Details
+              </h2>
+              <div className="space-y-4">
+                <p className="text-lg">anshsingh25bd@gmail.com</p>
+                <p className="text-lg">+91 6359451876</p>
+                <p className="text-lg text-muted-foreground">Chennai, India</p>
               </div>
+            </div>
 
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-primary/10 rounded-lg text-primary">
-                  <Phone className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="text-muted-foreground">Phone</p>
-                  <p className="font-medium">+91 6359451876</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-primary/10 rounded-lg text-primary">
-                  <MapPin className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="text-muted-foreground">Location</p>
-                  <p className="font-medium">Chennai, India</p>
-                </div>
-              </div>
-
-              <div className="pt-6">
-                <h3 className="text-lg font-semibold mb-4">
-                  Social Connections
-                </h3>
-                <div className="flex gap-4">
-                  <motion.a
-                    href="https://www.linkedin.com/in/ansh-singh-484215253/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <Linkedin className="w-6 h-6" />
-                  </motion.a>
-                  <motion.a
-                    href="https://github.com/AnshhSingh"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <Github className="w-6 h-6" />
-                  </motion.a>
-                  <motion.a
-                    href="https://myportfolio-sandy-seven.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    <Globe className="w-6 h-6" />
-                  </motion.a>
-                </div>
+            <div>
+              <h2 className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-6 border-b border-border/40 pb-4">
+                Socials
+              </h2>
+              <div className="space-y-4 flex flex-col">
+                <a 
+                  href="https://www.linkedin.com/in/ansh-singh-484215253/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-lg hover:text-muted-foreground transition-colors inline-flex items-center gap-2 w-fit group"
+                >
+                  LinkedIn
+                  <ArrowUpRight size={16} className="opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all text-muted-foreground" />
+                </a>
+                <a 
+                  href="https://github.com/AnshhSingh" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-lg hover:text-muted-foreground transition-colors inline-flex items-center gap-2 w-fit group"
+                >
+                  GitHub
+                  <ArrowUpRight size={16} className="opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all text-muted-foreground" />
+                </a>
               </div>
             </div>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

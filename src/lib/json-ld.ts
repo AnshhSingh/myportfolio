@@ -1,3 +1,5 @@
+const DOMAIN_URL = process.env.DOMAIN_URL || "https://anshsingh.live";
+
 export function generateJsonLd() {
   return {
     "@context": "https://schema.org",
@@ -6,8 +8,8 @@ export function generateJsonLd() {
     "givenName": "Ansh",
     "familyName": "Singh",
     "alternateName": ["Ansh Singh SRM", "Ansh Singh Chennai", "Ansh Singh Developer"],
-    "url": "https://anshsingh.live",
-    "image": "https://anshsingh.live/me.jpeg",
+    "url": DOMAIN_URL,
+    "image": `${DOMAIN_URL}/me.jpeg`,
     "sameAs": [
       "https://www.linkedin.com/in/ansh-singh-484215253/",
       "https://github.com/AnshhSingh",
@@ -41,7 +43,7 @@ export function generateJsonLd() {
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://anshsingh.live/"
+      "@id": `${DOMAIN_URL}/`
     },
     "address": {
       "@type": "PostalAddress",
@@ -59,7 +61,7 @@ export function generatePortfolioJsonLd() {
     "@type": "WebSite",
     "name": "Ansh Singh - SRM University Student Portfolio",
     "alternateName": "Ansh Singh Developer Portfolio",
-    "url": "https://anshsingh.live", 
+    "url": DOMAIN_URL, 
     "description": "Official portfolio of Ansh Singh, a Computer Science Engineering student at SRM Institute of Science and Technology (SRMIST), Chennai. Showcasing web development projects, skills, and academic achievements with technologies like React, Next.js, and modern JavaScript frameworks.",
     "author": {
       "@type": "Person",
@@ -200,7 +202,7 @@ export function generateFAQJsonLd() {
         "name": "How can I contact Ansh Singh from SRM University?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You can reach out to Ansh Singh through the contact form on his portfolio website (anshsingh.live), by emailing directly at anshsingh25bd@gmail.com, or by connecting with him on LinkedIn at https://www.linkedin.com/in/ansh-singh-484215253/."
+          "text": `You can reach out to Ansh Singh through the contact form on his portfolio website (${DOMAIN_URL}), by emailing directly at anshsingh25bd@gmail.com, or by connecting with him on LinkedIn at https://www.linkedin.com/in/ansh-singh-484215253/.`
         }
       },
       {

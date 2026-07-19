@@ -1,137 +1,63 @@
-'use client';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { Code, LibraryBig, Cpu } from 'lucide-react';
-import React, { memo } from 'react';
+"use client";
 
-interface SkillItem {
-  name: string;
-  icon: string;
-}
+import { motion } from "framer-motion";
 
-interface SkillCategoryType {
-  title: string;
-  icon: React.ReactNode;
-  items: SkillItem[];
-}
+const skills = {
+  frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Redux"],
+  backend: ["Node.js", "Express", "Python", "Django", "PostgreSQL", "MongoDB"],
+  tools: ["Git", "Docker", "AWS", "Vercel", "Figma", "Jest"],
+  ai: ["TensorFlow", "PyTorch", "OpenAI API", "Hugging Face", "LangChain"]
+};
 
-interface SkillCategoryProps {
-  category: SkillCategoryType;
-  index: number;
-}
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 }
+  }
+};
 
-// Animation variants and transitions defined outside the component
-const fadeInUpVariant = {
+const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+  }
 };
 
-const categoryVariant = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 },
-};
-
-const categoryTransition = (index: number) => ({
-  delay: index * 0.2,
-  duration: 0.6,
-  ease: 'easeOut',
-});
-
-const hoverAnimation = { scale: 1.05 };
-const tapAnimation = { scale: 0.95 };
-
-// Static skills data (evaluated once)
-const skillsData: SkillCategoryType[] = [
-  {
-    title: 'Programming Languages',
-    icon: <Code className="w-6 h-6" />,
-    items: [
-      { name: 'JavaScript', icon: '/icons/javascript.svg' },
-      { name: 'TypeScript', icon: '/icons/typescript.svg' },
-      { name: 'HTML', icon: '/icons/html.svg' },
-      { name: 'Python', icon: '/icons/py.svg' },
-      { name: 'C++', icon: '/icons/cpp.svg' },
-      { name: 'SQL', icon: '/icons/sql.svg' },
-    ],
-  },
-  {
-    title: 'Framework/Libraries',
-    icon: <LibraryBig className="w-6 h-6" />,
-    items: [
-      { name: 'React', icon: '/icons/react.svg' },
-      { name: 'Next.js', icon: '/icons/next-js.svg' },
-      { name: 'Node.js', icon: '/icons/nodejs.svg' },
-      { name: 'Express', icon: '/icons/expressjs.svg' },
-      { name: 'Tailwind CSS', icon: '/icons/tailwindcss.svg' },
-    ],
-  },
-  {
-    title: 'Tools & Technologies',
-    icon: <Cpu className="w-6 h-6" />,
-    items: [
-      { name: 'Git', icon: '/icons/git.svg' },
-      { name: 'Docker', icon: '/icons/docker.svg' },
-      { name: 'AWS', icon: '/icons/aws.svg' },
-      { name: 'MongoDB', icon: '/icons/mongodb.svg' },
-      { name: 'PostgreSQL', icon: '/icons/postgresql.svg' },
-    ],
-  },
-];
-
-const SkillCategory = memo(function SkillCategory({ category, index }: SkillCategoryProps) {
+export default function Skills() {
   return (
-    <motion.div
-      variants={categoryVariant}
-      initial="hidden"
-      animate="visible"
-      transition={categoryTransition(index)}
-      className="bg-card rounded-xl border border-primary/20 p-6 shadow-lg"
-    >
-      <div className="flex items-center gap-3 mb-6">
-        <div className="p-3 bg-primary/10 rounded-lg text-primary">
-          {category.icon}
-        </div>
-        <h2 className="text-2xl font-bold">{category.title}</h2>
-      </div>
-      <div className="grid grid-cols-2 gap-3">
-        {category.items.map((item) => (
-          <motion.div
-            key={item.name}
-            whileHover={hoverAnimation}
-            whileTap={tapAnimation}
-            className="flex items-center gap-3 px-4 py-3 bg-muted/50 rounded-lg"
-          >
-            <Image src={item.icon} alt={item.name} width={24} height={24} />
-            <span className="text-muted-foreground">{item.name}</span>
-          </motion.div>
-        ))}
-      </div>
-    </motion.div>
-  );
-});
+    <div className="py-20 min-h-screen">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.div variants={itemVariants} className="mb-20">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6">Technical Arsenal</h1>
+          <p className="text-lg text-muted-foreground max-w-xl">
+            A comprehensive overview of the tools, languages, and frameworks I use to bring ideas to life.
+          </p>
+        </motion.div>
 
-function Skills() {
-  return (
-    <div className="min-h-screen flex items-center justify-center p-4 pt-20 relative">
-      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_2px),linear-gradient(to_bottom,#f0f0f0_2px,transparent_1px)] bg-[size:6rem_4rem]"></div>
-      <div className="container max-w-7xl w-full px-4">
-        <motion.h1
-          variants={fadeInUpVariant}
-          initial="hidden"
-          animate="visible"
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="text-4xl md:text-6xl font-bold tracking-tight text-center mb-12 md:mb-16"
-        >
-          Technical Skills
-        </motion.h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {skillsData.map((category, index) => (
-            <SkillCategory key={category.title} category={category} index={index} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 md:gap-8">
+          {Object.entries(skills).map(([category, items]) => (
+            <motion.div key={category} variants={itemVariants}>
+              <h2 className="text-sm font-mono uppercase tracking-widest text-muted-foreground mb-8 border-b border-border/40 pb-4">
+                {category}
+              </h2>
+              <ul className="space-y-4">
+                {items.map((skill) => (
+                  <li key={skill} className="text-xl font-medium tracking-tight">
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
-
-export default memo(Skills);

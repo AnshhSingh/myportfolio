@@ -1,24 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
 
 export default function ThemeSwitcher() {
   const [isMounted, setIsMounted] = useState(false);
-  const [isDark, setIsDark] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     setIsMounted(true);
-    const savedTheme = localStorage.getItem("theme") || "light";
-    setIsDark(savedTheme === "dark");
   }, []);
-
-  useEffect(() => {
-    if (!isMounted) return;
-    document.documentElement.classList.toggle("dark", isDark);
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-  }, [isDark, isMounted]);
 
   if (!isMounted) return null;
 
@@ -32,18 +25,18 @@ export default function ThemeSwitcher() {
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        onClick={() => setIsDark(!isDark)}
-        className="bg-background/50 backdrop-blur-sm border border-primary/20 shadow-lg p-3 rounded-full flex items-center justify-center"
+        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+        className="bg-background/80 backdrop-blur-md border border-primary/20 shadow-lg p-3 rounded-full flex items-center justify-center glass-panel"
         aria-label="Toggle theme"
       >
         <motion.div
-          key={isDark ? "dark" : "light"}
+          key={theme === "dark" ? "dark" : "light"}
           initial={{ rotate: 0, scale: 0 }}
           animate={{ rotate: 360, scale: 1 }}
           exit={{ rotate: -360, scale: 0 }}
           transition={{ duration: 0.3, type: "spring" }}
         >
-          {isDark ? (
+          {theme === "dark" ? (
             <Sun className="w-5 h-5 text-primary" />
           ) : (
             <Moon className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />

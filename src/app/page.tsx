@@ -1,229 +1,85 @@
-'use client';
-import Image from "next/image";
-import { Download, Linkedin, Github, Link, ArrowRight } from "lucide-react"; 
-import { Button } from "@/components/ui/button";
+"use client";
+
+import Link from "next/link";
 import { motion } from "framer-motion";
-import React, { memo } from "react";
+import { ArrowUpRight } from "lucide-react";
 
-// Animation variants defined outside the component
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+  }
+};
+
 const containerVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 }
+  }
 };
 
-const containerTransition = { duration: 0.6, ease: "easeOut" };
-
-const scaleFadeVariant = {
-  hidden: { scale: 0.9, opacity: 0 },
-  visible: { scale: 1, opacity: 1 },
-};
-
-const scaleFadeTransition = { duration: 0.5, ease: "easeOut" };
-
-const headingVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
-
-const headingTransition = (delay = 0.2) => ({
-  delay,
-  duration: 0.6,
-  ease: "easeOut",
-});
-
-function Portfolio() {
+export default function Portfolio() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 pt-20">
-      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_2px),linear-gradient(to_bottom,#f0f0f0_2px,transparent_1px)] bg-[size:6rem_4rem]"></div>
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        transition={containerTransition}
-        className="container max-w-7xl w-full px-4"
-      >
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-          <div className="flex justify-center md:justify-end order-1 md:order-none">
-            <motion.div
-              variants={scaleFadeVariant}
-              initial="hidden"
-              animate="visible"
-              transition={scaleFadeTransition}
-              className="relative w-64 h-64 md:w-80 md:h-80 overflow-hidden rounded-full border-4 border-primary/20 shadow-lg"
-            >
-              <Image
-                src="/me.jpeg"
-                alt="Ansh's portrait"
-                fill
-                className="object-cover"
-                priority
-                fetchPriority="high"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </motion.div>
-          </div>
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            transition={containerTransition}
-            className="space-y-6 md:space-y-8 text-center md:text-left order-2 md:order-none"
-          >
-            <div className="space-y-4">
-              <motion.h1
-                variants={headingVariants}
-                initial="hidden"
-                animate="visible"
-                transition={headingTransition(0.2)}
-                className="text-4xl md:text-6xl font-bold tracking-tight"
-              >
-                <motion.span
-                  variants={{
-                    hidden: { scale: 0.8, opacity: 0 },
-                    visible: { scale: 1, opacity: 1 },
-                  }}
-                  initial="hidden"
-                  animate="visible"
-                  transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
-                  className="inline-block text-5xl md:text-8xl text-primary"
-                >
-                  Hi,
-                </motion.span>{" "}
-                <motion.span
-                  variants={{
-                    hidden: { opacity: 0, x: 20 },
-                    visible: { opacity: 1, x: 0 },
-                  }}
-                  initial="hidden"
-                  animate="visible"
-                  transition={{ delay: 0.6, duration: 0.6, ease: "easeOut" }}
-                >
-                  I am Ansh
-                </motion.span>
-              </motion.h1>              <p className="text-lg md:text-2xl text-muted-foreground mb-4">
-                Full Stack Developer | Open Source Enthusiast
-              </p>
-
-              <div className="space-y-4 text-base md:text-lg text-left">                
-                <p>
-                  I&apos;m a passionate <a href="/skills" className="text-primary hover:underline">Full Stack Developer</a> and 
-                  Computer Science student with a keen interest in building innovative web applications. Check out 
-                  my <a href="/projects" className="text-primary hover:underline">portfolio projects</a> to see my work.
-                </p>
-              
-                <p>
-                  I am also currently working on delivering ML based web applications and exploring the world of AI. 
-                  Learn more <a href="/about" className="text-primary hover:underline">about my background</a> and 
-                  my journey in software development.
-                </p>
-              </div>
-            </div>
-
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="mt-6">
-              <a href="ansh_resume.pdf" download="Ansh_Resume.pdf">
-                <Button className="gap-2 px-6 py-4 md:px-8 md:py-6 text-base md:text-lg" aria-label="Download Resume">
-                  <Download size={20} className="md:size-6" />
-                  Download Resume
-                </Button>
-              </a>
-            </motion.div>            <div className="flex flex-col space-y-4">
-              <p className="text-sm text-muted-foreground">Connect with me:</p>
-              <div className="flex justify-center md:justify-start gap-4">
-                <motion.a
-                  href="https://www.linkedin.com/in/ansh-singh-484215253/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-                  aria-label="LinkedIn Profile"
-                >
-                  <Linkedin size={20} />
-                  <span className="text-sm">LinkedIn</span>
-                </motion.a>
-                <motion.a
-                  href="https://github.com/AnshhSingh"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-                  aria-label="GitHub Profile"
-                >
-                  <Github size={20} />
-                  <span className="text-sm">GitHub</span>
-                </motion.a>
-                <motion.a
-                  href="/links"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-                  aria-label="All Links"
-                >
-                  <Link size={20} />
-                  <span className="text-sm">More Links</span>
-                </motion.a>
-              </div>
-            </div>          </motion.div>        
+    <div className="flex flex-col justify-center min-h-[calc(100vh-200px)] py-20">
+      <div className="max-w-3xl">
+        <div className="mb-6 hero-animate hero-delay-0">
+          <span className="text-muted-foreground font-mono text-sm tracking-tight uppercase">Full Stack Developer</span>
         </div>
+        
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.05] mb-8 hero-animate hero-delay-1">
+          Crafting digital <br className="hidden md:block"/>
+          experiences with <br className="hidden md:block"/>
+          precision.
+        </h1>
 
-        <motion.div 
-          className="mt-16 md:mt-24 space-y-10"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-        >
-          <div className="text-center">
-            <h2 className="text-3xl font-bold mb-6">Explore My Portfolio</h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { 
-                title: "My Projects", 
-                description: "Explore my latest web development work and client projects", 
-                icon: "/icons/react.svg", 
-                link: "/projects",
-                cta: "View Projects"
-              },
-              { 
-                title: "Tech Skills", 
-                description: "See the technologies and programming languages I specialize in", 
-                icon: "/icons/javascript.svg", 
-                link: "/skills",
-                cta: "Explore Skills"
-              },
-              { 
-                title: "Contact Me", 
-                description: "Get in touch for collaboration or job opportunities", 
-                icon: "/icons/html.svg", 
-                link: "/contact",
-                cta: "Reach Out"
-              }
-            ].map((item, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow hover:shadow-md transition-all">
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                <p className="mb-4 text-muted-foreground">{item.description}</p>
-                <a 
-                  href={item.link} 
-                  className="text-primary font-medium hover:underline inline-flex items-center gap-1"
-                >
-                  {item.cta} <ArrowRight size={16} />
-                </a>
-              </div>
-            ))}
-          </div>
-          
-          <div className="mt-10 text-center">
-            <p className="mb-4">
-              Want to know more about me? Visit my <a href="/about" className="text-primary hover:underline">about page</a>
-            </p>
-          </div>
-        </motion.div>
+        <p className="text-lg md:text-xl text-muted-foreground max-w-xl text-balance mb-12 leading-relaxed hero-animate hero-delay-2">
+          I&apos;m Ansh Singh, a passionate software engineer specializing in innovative web applications and AI integration.
+        </p>
+        
+        <div className="flex items-center gap-8 hero-animate hero-delay-3">
+           <Link href="/projects" prefetch={true} className="group flex items-center gap-2 font-medium">
+             View Work 
+             <ArrowUpRight size={18} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+           </Link>
+           <Link href="/resume" prefetch={true} className="text-muted-foreground hover:text-foreground transition-colors font-medium link-underline pb-1">
+             Resume
+           </Link>
+        </div>
+      </div>
+      
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8, duration: 1 }}
+        className="mt-32 border-t border-border/40 pt-12"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+          <Link href="/about" prefetch={true} className="group block">
+            <h3 className="text-lg font-medium mb-3 flex items-center justify-between border-b border-transparent group-hover:border-border/50 pb-2 transition-all">
+              About 
+              <ArrowUpRight size={16} className="opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300" />
+            </h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">Discover my background and journey into software development.</p>
+          </Link>
+          <Link href="/skills" prefetch={true} className="group block">
+            <h3 className="text-lg font-medium mb-3 flex items-center justify-between border-b border-transparent group-hover:border-border/50 pb-2 transition-all">
+              Skills 
+              <ArrowUpRight size={16} className="opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300" />
+            </h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">Technologies and programming languages I specialize in.</p>
+          </Link>
+          <Link href="/contact" prefetch={true} className="group block">
+            <h3 className="text-lg font-medium mb-3 flex items-center justify-between border-b border-transparent group-hover:border-border/50 pb-2 transition-all">
+              Contact 
+              <ArrowUpRight size={16} className="opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300" />
+            </h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">Get in touch for collaboration or job opportunities.</p>
+          </Link>
+        </div>
       </motion.div>
     </div>
   );
 }
-
-export default memo(Portfolio);

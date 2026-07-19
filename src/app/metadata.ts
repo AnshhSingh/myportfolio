@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { defaultViewport } from '@/lib/viewport';
 
-const SITE_URL = "https://anshsingh.live";
+const SITE_URL = process.env.DOMAIN_URL || "https://anshsingh.live";
 const OG_IMAGE_PATH = "/me.jpeg";
 
 export const viewport = defaultViewport;
@@ -23,7 +23,13 @@ export const metadata: Metadata = {
     "SRM University student", 
     "Web developer",
     "Next.js developer",
-    "full stack developer"
+    "full stack developer",
+    "React developer",
+    "Software Engineer",
+    "Frontend Developer",
+    "Backend Developer",
+    "Portfolio Website",
+    "Creative Developer"
   ],
   authors: [{ name: "Ansh Singh", url: SITE_URL }],
   creator: "Ansh Singh",
@@ -34,6 +40,11 @@ export const metadata: Metadata = {
     icon: [{ url: "/favicon.ico" }],
     shortcut: [{ url: "/favicon.ico" }],
     apple: [{ url: "/favicon.ico" }],
+  },
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
   },
   openGraph: {
     title: "Ansh Singh | Official Website - Computer Science Student & Developer",
