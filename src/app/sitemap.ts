@@ -43,9 +43,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
     {
-      url: `${BASE_URL}/ansh_resume.pdf`,
+      url: `${BASE_URL}/resume`,
       lastModified,
-      changeFrequency: "yearly" as const,
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
+    },
+    {
+      url: `${BASE_URL}/resume.pdf`,
+      lastModified,
+      changeFrequency: "monthly" as const,
       priority: 0.5,
     },
   ];
