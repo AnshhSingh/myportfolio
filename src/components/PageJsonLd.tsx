@@ -18,15 +18,16 @@ export default function PageJsonLd({ type = 'breadcrumb', data }: PageJsonLdProp
       const parts = pathname.split('/').filter(Boolean);
       let currentPath = '';
       
+      const domain = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://ansh-singh.in';
       const breadcrumbs = [
-        { name: 'Home', url: 'https://anshsingh.live' }
+        { name: 'Home', url: domain }
       ];
       
       parts.forEach(part => {
         currentPath += '/' + part;
         breadcrumbs.push({
           name: part.charAt(0).toUpperCase() + part.slice(1),
-          url: `https://anshsingh.live${currentPath}`
+          url: `${domain}${currentPath}`
         });
       });
       

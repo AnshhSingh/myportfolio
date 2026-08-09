@@ -13,7 +13,7 @@ export const middleware: NextMiddleware = (req: NextRequest) => {
   // Set Content Security Policy
   response.headers.set(
     'Content-Security-Policy',
-    "default-src 'self'; worker-src 'self' blob: https://unpkg.com http://unpkg.com; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://unpkg.com http://unpkg.com https://va.vercel-scripts.com https://*.google-analytics.com https://*.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://va.vercel-scripts.com https://*.google-analytics.com https://*.googletagmanager.com https://anshsingh.live;"
+    "default-src 'self'; worker-src 'self' blob: https://unpkg.com http://unpkg.com; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://unpkg.com http://unpkg.com https://va.vercel-scripts.com https://*.google-analytics.com https://*.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://va.vercel-scripts.com https://*.google-analytics.com https://*.googletagmanager.com https://ansh-singh.in https://anshsingh.live;"
   )
 
   // Add preload for critical resources

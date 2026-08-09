@@ -1,22 +1,29 @@
-"use client";
+import type { Metadata } from "next";
+import ResumeViewer from "./ResumeViewer";
 
-import dynamic from "next/dynamic";
-import { Loader2 } from "lucide-react";
-
-// Dynamically import the Resume viewer with SSR disabled
-// This fixes the 'DOMMatrix is not defined' prerender error in Next.js
-const ClientResume = dynamic(() => import("./ClientResume"), {
-  ssr: false,
-  loading: () => (
-    <div className="py-20 min-h-[calc(100vh-140px)] flex flex-col items-center justify-center">
-      <div className="flex flex-col items-center text-muted-foreground gap-4">
-        <Loader2 className="w-8 h-8 animate-spin" />
-        <p className="font-mono text-sm">Loading viewer...</p>
-      </div>
-    </div>
-  ),
-});
+export const metadata: Metadata = {
+  title: "Resume | Ansh Singh",
+  description: "View and download the professional resume of Ansh Singh, Full Stack Developer and Computer Science Engineering student.",
+  keywords: ["Ansh Singh resume", "full stack developer resume", "software engineer CV", "Ansh Singh experience"],
+  openGraph: {
+    title: "Resume | Ansh Singh",
+    description: "View and download the professional resume of Ansh Singh, Full Stack Developer and Computer Science Engineering student.",
+    url: "/resume",
+    images: [
+      {
+        url: "/me.jpeg",
+        width: 800,
+        height: 800,
+        alt: "Ansh Singh",
+      },
+    ],
+    type: "website",
+  },
+  alternates: {
+    canonical: "/resume",
+  },
+};
 
 export default function ResumePage() {
-  return <ClientResume />;
+  return <ResumeViewer />;
 }
