@@ -18,7 +18,7 @@ export default function PageJsonLd({ type = 'breadcrumb', data }: PageJsonLdProp
       const parts = pathname.split('/').filter(Boolean);
       let currentPath = '';
       
-      const domain = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://ansh-singh.in';
+      const domain = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://www.ansh-singh.in';
       const breadcrumbs = [
         { name: 'Home', url: domain }
       ];

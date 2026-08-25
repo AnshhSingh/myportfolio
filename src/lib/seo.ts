@@ -6,7 +6,7 @@
  * @returns The canonical URL
  */
 export function getCanonicalUrl(path: string): string {
-  const baseUrl = process.env.DOMAIN_URL || 'https://ansh-singh.in';
+  const baseUrl = process.env.DOMAIN_URL || 'https://www.ansh-singh.in';
   return `${baseUrl}${path}`;
 }
 

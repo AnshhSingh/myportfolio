@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = process.env.DOMAIN_URL || "https://ansh-singh.in";
+const BASE_URL = process.env.DOMAIN_URL || "https://www.ansh-singh.in";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();

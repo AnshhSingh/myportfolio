@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { defaultViewport } from '@/lib/viewport';
 
-const SITE_URL = process.env.DOMAIN_URL || "https://ansh-singh.in";
+const SITE_URL = process.env.DOMAIN_URL || "https://www.ansh-singh.in";
 const OG_IMAGE_PATH = "/me.jpeg";
 
 export const viewport = defaultViewport;

@@ -91,7 +91,7 @@ export async function getSitemapUrl(path: string, priority: number = 0.5, change
   changeFrequency: string;
   priority: number;
 }> {
-  const baseUrl = process.env.DOMAIN_URL || 'https://ansh-singh.in';
+  const baseUrl = process.env.DOMAIN_URL || 'https://www.ansh-singh.in';
   return {
     url: `${baseUrl}${path}`,
     lastModified: new Date(),

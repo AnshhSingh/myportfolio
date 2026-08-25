@@ -1,4 +1,4 @@
-const DOMAIN_URL = process.env.DOMAIN_URL || "https://ansh-singh.in";
+const DOMAIN_URL = process.env.DOMAIN_URL || "https://www.ansh-singh.in";
 
 export function generateJsonLd() {
   return {
