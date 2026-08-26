@@ -192,11 +192,17 @@ body {
     display: flex;
     width: max-content;
     animation: marquee-scroll 40s linear infinite;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
   }
   .marquee-track-reverse {
     display: flex;
     width: max-content;
     animation: marquee-scroll-reverse 45s linear infinite;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
   }
   .marquee-container:hover .marquee-track,
   .marquee-container:hover .marquee-track-reverse {
