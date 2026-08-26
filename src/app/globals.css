@@ -132,6 +132,39 @@ body {
     background-color: var(--accent-pop);
     color: oklch(0.15 0 0);
   }
+
+  /* Sleek Amber Custom Scrollbar */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklch, var(--accent-pop) 40%, transparent) transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklch, var(--accent-pop) 35%, transparent);
+    border-radius: 9999px;
+    transition: background-color 0.2s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-pop);
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: var(--accent-pop);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
 }
 
 @layer utilities {
