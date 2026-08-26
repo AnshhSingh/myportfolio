@@ -7,6 +7,8 @@
 @theme {
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
+  --font-display: var(--font-space-grotesk);
+  --font-heading: var(--font-space-grotesk);
 }
 
 :root {
@@ -40,6 +42,11 @@
   --ring: oklch(0.15 0 0);
   
   --radius: 0rem; /* Sharp edges for minimalism */
+  
+  /* Warm Amber Accent — surgical use only */
+  --accent-pop: oklch(0.72 0.14 55);
+  --accent-pop-glow: oklch(0.72 0.14 55 / 0.2);
+  --accent-pop-subtle: oklch(0.72 0.14 55 / 0.08);
 }
 
 .dark {
@@ -71,6 +78,11 @@
   --border: oklch(0.2 0 0);
   --input: oklch(0.2 0 0);
   --ring: oklch(0.95 0 0);
+  
+  /* Warm Amber Accent — dark mode variant */
+  --accent-pop: oklch(0.82 0.11 60);
+  --accent-pop-glow: oklch(0.82 0.11 60 / 0.15);
+  --accent-pop-subtle: oklch(0.82 0.11 60 / 0.06);
 }
 
 @theme inline {
@@ -93,6 +105,7 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-accent-pop: var(--accent-pop);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -114,9 +127,10 @@ body {
     background-color: var(--background);
   }
   
-  /* Selection styling */
+  /* Selection styling — amber accent */
   ::selection {
-    @apply bg-foreground text-background;
+    background-color: var(--accent-pop);
+    color: oklch(0.15 0 0);
   }
 }
 
@@ -139,7 +153,7 @@ body {
     height: 1px;
     bottom: 0;
     left: 0;
-    background-color: currentColor;
+    background-color: var(--accent-pop);
     transform-origin: bottom right;
     transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
   }
@@ -163,4 +177,86 @@ body {
   .hero-delay-1 { animation-delay: 0.1s; }
   .hero-delay-2 { animation-delay: 0.2s; }
   .hero-delay-3 { animation-delay: 0.3s; }
+  
+  /* ===== Marquee Animation ===== */
+  @keyframes marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes marquee-scroll-reverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+  
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 40s linear infinite;
+  }
+  .marquee-track-reverse {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll-reverse 45s linear infinite;
+  }
+  .marquee-container:hover .marquee-track,
+  .marquee-container:hover .marquee-track-reverse {
+    animation-play-state: paused;
+  }
+  
+  /* ===== Bento Card Styles ===== */
+  .bento-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+  .bento-card:hover {
+    border-color: var(--accent-pop);
+    box-shadow: 0 0 20px var(--accent-pop-glow), 0 0 40px var(--accent-pop-subtle);
+  }
+  .bento-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      var(--accent-pop-subtle),
+      transparent 40%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .bento-card:hover::before {
+    opacity: 1;
+  }
+  
+  /* ===== Line Draw Animation ===== */
+  @keyframes line-draw {
+    0% { transform: scaleX(0); }
+    100% { transform: scaleX(1); }
+  }
+  .line-draw-animate {
+    transform-origin: left;
+    animation: line-draw 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.2s;
+    transform: scaleX(0);
+  }
+
+  /* ===== Reduced Motion ===== */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-animate {
+      animation: none;
+      opacity: 1;
+    }
+    .marquee-track,
+    .marquee-track-reverse {
+      animation: none;
+    }
+    .line-draw-animate {
+      animation: none;
+      transform: scaleX(1);
+    }
+  }
 }

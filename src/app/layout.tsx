@@ -1,4 +1,4 @@
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Header from "../components/header";
 import { Analytics } from "@vercel/analytics/react";
@@ -7,6 +7,7 @@ import { generateJsonLd, generatePortfolioJsonLd } from "@/lib/json-ld";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import ThemeSwitcher from "@/components/Themeswitch";
 import SwipeNavigation from "@/components/SwipeNavigation";
+import InteractiveGrid from "@/components/InteractiveGrid";
 import Link from "next/link";
 export { metadata, viewport } from "./metadata";
 export const dynamic = "force-static";
@@ -22,6 +23,13 @@ const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
   display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["500", "600", "700"],
 });
 
 export default function RootLayout({
@@ -41,13 +49,18 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(generatePortfolioJsonLd()) }}
         />
       </head>
-      <body className={`${inter.variable} ${jetBrainsMono.variable} antialiased transition-colors duration-300`}>
+      <body className={`${inter.variable} ${jetBrainsMono.variable} ${spaceGrotesk.variable} antialiased transition-colors duration-300`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
+          {/* Interactive Grid Background — all pages */}
+          <div className="fixed inset-0 w-screen h-screen z-0 pointer-events-auto">
+            <InteractiveGrid />
+          </div>
+
           {/* Subtle Grain Overlay */}
           <div 
             className="fixed inset-0 z-[100] pointer-events-none opacity-[0.04] dark:opacity-[0.06] mix-blend-difference" 
