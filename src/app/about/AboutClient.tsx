@@ -56,7 +56,7 @@ export default function AboutClient() {
           </motion.div>
           <motion.div variants={itemVariants} className="md:col-span-8 prose prose-neutral dark:prose-invert prose-lg">
             <p className="text-xl md:text-2xl leading-relaxed font-medium tracking-tight mb-8">
-              I&apos;m a passionate Full Stack Developer and Computer Science student with a keen interest in building innovative web applications.
+              I&apos;m a passionate Full Stack Developer at Digistashing Technologies and Computer Science graduate with a keen interest in building innovative web applications.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-6">
               My journey in software development started with a curiosity about how things work on the internet. Since then, I&apos;ve dedicated myself to mastering the tools and technologies that power the modern web.
@@ -169,9 +169,9 @@ export default function AboutClient() {
             </h2>
           </div>
           <div className="md:col-span-8">
-            <h3 className="text-xl font-semibold tracking-tight">Computer Science</h3>
+            <h3 className="text-xl font-semibold tracking-tight">SRM Institute of Science and Technology</h3>
             <p className="text-muted-foreground mt-2">B.Tech in Computer Science and Engineering</p>
-            <p className="text-sm text-muted-foreground mt-4 font-mono">2021 - Present</p>
+            <p className="text-sm text-muted-foreground mt-4 font-mono">2022 – 2026</p>
           </div>
         </motion.div>
         

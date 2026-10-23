@@ -9,8 +9,8 @@ export const viewport = defaultViewport;
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   applicationName: "Ansh Singh Portfolio",
-  title: "Ansh Singh | Full Stack Developer & Computer Science Student",
-  description: "Portfolio of Ansh Singh, a Full Stack Developer and Computer Science Engineering student at SRM University, showcasing projects, skills, and professional experience.",
+  title: "Ansh Singh | Full Stack Developer",
+  description: "Portfolio of Ansh Singh, a Full Stack Developer at Digistashing Technologies and Computer Science graduate from SRM University, showcasing projects, skills, and professional experience.",
   alternates: {
     canonical: "/",
   },
@@ -20,7 +20,8 @@ export const metadata: Metadata = {
     "Ansh Singh SRM",
     "Ansh Singh developer",
     "Ansh Singh SRMIST", 
-    "SRM University student", 
+    "Digistashing Technologies", 
+    "SRM University graduate", 
     "Web developer",
     "Next.js developer",
     "full stack developer",
@@ -47,8 +48,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "Ansh Singh | Official Website - Computer Science Student & Developer",
-    description: "Official website of Ansh Singh, Computer Science student at SRM University. Showcasing Ansh Singh's development projects, technical skills, and achievements as a full-stack developer specializing in React and Next.js.",
+    title: "Ansh Singh | Full Stack Developer",
+    description: "Official website of Ansh Singh, Full Stack Developer at Digistashing Technologies and Computer Science graduate from SRM University. Showcasing development projects, technical skills, and achievements.",
     url: SITE_URL,
     siteName: "Ansh Singh Portfolio",
     locale: "en_US",
@@ -64,8 +65,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ansh Singh | Official Website - Computer Science Student & Developer",
-    description: "Official website of Ansh Singh, Computer Science student at SRM University. Showcasing projects, skills, and achievements as a full-stack developer.",
+    title: "Ansh Singh | Full Stack Developer",
+    description: "Official website of Ansh Singh, Full Stack Developer at Digistashing Technologies. Showcasing projects, skills, and achievements.",
     creator: "@ansh50421466",
     images: [OG_IMAGE_PATH],
   },

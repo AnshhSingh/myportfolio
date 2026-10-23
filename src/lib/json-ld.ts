@@ -17,8 +17,8 @@ export function generateJsonLd() {
       "https://x.com/ansh50421466",
       "https://www.geeksforgeeks.org/user/user_41sajic4oat/"
     ],
-    "jobTitle": "Computer Science Student & Full Stack Developer",
-    "description": "Ansh Singh is a Computer Science Engineering student at SRM Institute of Science and Technology (SRMIST), Chennai. Specializing in web development with React, Next.js, and modern JavaScript frameworks, Ansh Singh creates responsive and innovative web applications.",
+    "jobTitle": "Full Stack Developer",
+    "description": "Ansh Singh is a Full Stack Developer at Digistashing Technologies and Computer Science graduate from SRM Institute of Science and Technology (SRMIST), Chennai. Specializing in web development with React, Next.js, Django, and modern frameworks, Ansh Singh creates responsive and innovative web applications.",
     "skills": "Web Development, React, Next.js, JavaScript, TypeScript, Node.js, MongoDB, PostgreSQL",
     "knowsAbout": [
       "Web Development",
@@ -59,10 +59,10 @@ export function generatePortfolioJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Ansh Singh - SRM University Student Portfolio",
+    "name": "Ansh Singh - Developer Portfolio",
     "alternateName": "Ansh Singh Developer Portfolio",
     "url": DOMAIN_URL, 
-    "description": "Official portfolio of Ansh Singh, a Computer Science Engineering student at SRM Institute of Science and Technology (SRMIST), Chennai. Showcasing web development projects, skills, and academic achievements with technologies like React, Next.js, and modern JavaScript frameworks.",
+    "description": "Official portfolio of Ansh Singh, a Full Stack Developer at Digistashing Technologies and Computer Science graduate from SRM Institute of Science and Technology (SRMIST), Chennai. Showcasing web development projects, skills, and professional achievements with technologies like React, Next.js, and modern frameworks.",
     "author": {
       "@type": "Person",
       "name": "Ansh Singh",
@@ -75,11 +75,11 @@ export function generatePortfolioJsonLd() {
     "about": {
       "@type": "Person",
       "name": "Ansh Singh",
-      "description": "Computer Science Engineering student at SRM Institute of Science and Technology (2022-2026)"
+      "description": "Full Stack Developer at Digistashing Technologies and Computer Science Engineering graduate from SRM Institute of Science and Technology (2022-2026)"
     },
     "inLanguage": "en-US",
     "copyrightYear": new Date().getFullYear(),
-    "keywords": "Ansh Singh, Ansh Singh SRM, SRM Institute of Science and Technology, student portfolio, Chennai student developer, React developer, Next.js projects, Computer Science Engineering, JavaScript, TypeScript, web development, SRM University, SRMIST",
+    "keywords": "Ansh Singh, Ansh Singh SRM, SRM Institute of Science and Technology, Digistashing Technologies, portfolio, Chennai developer, Full Stack developer, React developer, Next.js projects, Computer Science Engineering, JavaScript, TypeScript, web development, SRM University, SRMIST",
     "creator": {
       "@type": "Person",
       "name": "Ansh Singh"
@@ -96,7 +96,7 @@ export function generatePortfolioProjectsJsonLd() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "Ansh Singh's Portfolio Projects",
-    "description": "Web development projects created by Ansh Singh, a Computer Science Engineering student at SRM Institute of Science and Technology",
+    "description": "Web development projects created by Ansh Singh, Full Stack Developer and Computer Science graduate from SRM Institute of Science and Technology",
     "itemListElement": [
       {
         "@type": "ListItem",
@@ -104,7 +104,7 @@ export function generatePortfolioProjectsJsonLd() {
         "item": {
           "@type": "SoftwareSourceCode",
           "name": "Ecom - E-commerce Platform",
-          "description": "A full-featured e-commerce website built using React with CMS integration. Created by Ansh Singh as part of web development portfolio at SRM University.",
+          "description": "A full-featured e-commerce website built using React with CMS integration. Created by Ansh Singh as part of his web development portfolio.",
           "codeRepository": "https://github.com/AnshhSingh/Ecom",
           "programmingLanguage": ["JavaScript", "React.JS", "Strapi", "Tailwind CSS"],
           "url": "https://appproject-git-main-anshhsingh.vercel.app/",
@@ -118,7 +118,7 @@ export function generatePortfolioProjectsJsonLd() {
             }
           },
           "headline": "E-commerce website with React and CMS",
-          "keywords": ["e-commerce", "React", "Strapi", "web development", "SRM student project"],
+          "keywords": ["e-commerce", "React", "Strapi", "web development", "portfolio project"],
           "dateCreated": "2023"
         }
       },
@@ -128,7 +128,7 @@ export function generatePortfolioProjectsJsonLd() {
         "item": {
           "@type": "SoftwareSourceCode",
           "name": "PDF RAG - Document Analysis System",
-          "description": "Advanced document query system developed by Ansh Singh at SRM Institute of Science and Technology. This system enables users to upload and parse PDFs and query indexed content using LlamaIndex and AI technologies.",
+          "description": "Advanced document query system developed by Ansh Singh. This system enables users to upload and parse PDFs and query indexed content using LlamaIndex and AI technologies.",
           "codeRepository": "https://github.com/AnshhSingh/RAG_PDF_Backend",
           "programmingLanguage": ["Python", "React.js", "FastAPI", "LlamaIndex", "Hugging Face"],
           "url": "https://colab.research.google.com/drive/1Xha2XgoOQQ8oLurqG8-g0LyrIONF7fkd?usp=sharing",
@@ -142,7 +142,7 @@ export function generatePortfolioProjectsJsonLd() {
             }
           },
           "headline": "PDF document analysis with RAG and LLMs",
-          "keywords": ["document analysis", "PDF parsing", "RAG", "retrieval augmented generation", "LlamaIndex", "AI", "SRM student project"],
+          "keywords": ["document analysis", "PDF parsing", "RAG", "retrieval augmented generation", "LlamaIndex", "AI", "portfolio project"],
           "dateCreated": "2023"
         }
       },
@@ -152,14 +152,14 @@ export function generatePortfolioProjectsJsonLd() {
         "item": {
           "@type": "SoftwareSourceCode",
           "name": "Micro Bench",
-          "description": "Benchmarking tool for Arduino microcontrollers developed by Ansh Singh, Computer Science student at SRM University. Determines performance metrics using standardized scoring system.",
+          "description": "Benchmarking tool for Arduino microcontrollers developed by Ansh Singh. Determines performance metrics using standardized scoring system.",
           "codeRepository": "https://github.com/AnshhSingh/microcontrollerbench",
           "programmingLanguage": ["Arduino", "C++"],
           "author": {
             "@type": "Person",
             "name": "Ansh Singh"
           },
-          "keywords": ["Arduino", "benchmark", "microcontroller", "performance testing", "SRM student project"],
+          "keywords": ["Arduino", "benchmark", "microcontroller", "performance testing", "portfolio project"],
           "dateCreated": "2023"
         }
       }
@@ -175,10 +175,10 @@ export function generateFAQJsonLd() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Who is Ansh Singh and where does he study?",
+        "name": "Who is Ansh Singh?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ansh Singh is a Computer Science Engineering student at SRM Institute of Science and Technology (SRMIST) in Chennai, India. He is pursuing a Bachelor of Technology degree (B.Tech) from 2022-2026. He specializes in web development and creates projects with modern technologies."
+          "text": "Ansh Singh is a Full Stack Developer at Digistashing Technologies and a Computer Science Engineering graduate from SRM Institute of Science and Technology (SRMIST) in Chennai, India (B.Tech 2022-2026). He specializes in web development and creates projects with modern technologies."
         }
       },
       {
@@ -191,15 +191,15 @@ export function generateFAQJsonLd() {
       },
       {
         "@type": "Question",
-        "name": "What projects has Ansh Singh created as an SRM student?",
+        "name": "What projects has Ansh Singh created?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "As an SRM student, Ansh Singh has developed several projects including an E-commerce platform using React and Strapi, a PDF document analysis system using RAG and LlamaIndex, a microcontroller benchmarking tool for Arduino boards, and an image conversion web application using Next.js and Express.js."
+          "text": "Ansh Singh has developed several projects including an E-commerce platform using React and Strapi, a PDF document analysis system using RAG and LlamaIndex, a microcontroller benchmarking tool for Arduino boards, and an image conversion web application using Next.js and Express.js."
         }
       },
       {
         "@type": "Question",
-        "name": "How can I contact Ansh Singh from SRM University?",
+        "name": "How can I contact Ansh Singh?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": `You can reach out to Ansh Singh through the contact form on his portfolio website (${DOMAIN_URL}), by emailing directly at anshsingh25bd@gmail.com, or by connecting with him on LinkedIn at https://www.linkedin.com/in/ansh-singh-484215253/.`

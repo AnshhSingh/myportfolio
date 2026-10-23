@@ -150,45 +150,48 @@ function SkillsVisual() {
   );
 }
 
-// Projects card: stacked cards preview
+// Projects card: layered project cards preview
 function ProjectsVisual() {
   return (
-    <div className="relative w-full h-full flex items-center justify-center">
-      {[0, 1, 2].map((i) => (
-        <motion.div
-          key={i}
-          className="absolute border border-foreground/15 dark:border-muted-foreground/25 bg-card shadow-sm transition-all duration-500"
-          style={{
-            width: `${82 - i * 10}%`,
-            height: `${72 - i * 8}%`,
-            transform: `translateY(${i * 8}px) rotate(${(i - 1) * 2.5}deg)`,
-            zIndex: 3 - i,
-          }}
-          whileHover={{
-            y: i * 4,
-            rotate: 0,
-          }}
-        >
-          {/* Mock UI layout */}
-          <div className="p-2.5 space-y-2">
+    <div className="w-full h-full flex items-center justify-center p-1">
+      <div className="relative w-full max-w-[185px] h-[96px] flex items-center justify-center">
+        {/* Back card (3rd layer) */}
+        <div className="absolute top-0 w-[84%] h-[68px] rounded border border-border/40 bg-foreground/[0.02] dark:bg-foreground/[0.03] transition-all duration-500 group-hover:-translate-y-1.5 opacity-40 shadow-sm" />
+
+        {/* Middle card (2nd layer) */}
+        <div className="absolute top-1.5 w-[92%] h-[74px] rounded border border-border/60 bg-foreground/[0.03] dark:bg-foreground/[0.05] transition-all duration-500 group-hover:-translate-y-0.5 opacity-70 shadow-sm" />
+
+        {/* Front card (main layer) */}
+        <div className="absolute top-3 w-full rounded border border-border/80 bg-card p-2 transition-all duration-500 group-hover:border-accent-pop/60 shadow-md">
+          {/* Top bar with mini badge */}
+          <div className="flex items-center justify-between mb-1.5 pb-1 border-b border-border/60 text-[8.5px] font-mono">
+            <span className="text-foreground/40 dark:text-muted-foreground/40 uppercase tracking-wider">PROJECT // 01</span>
+            <span className="flex items-center gap-1 font-mono text-[7.5px] text-accent-pop font-semibold">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent-pop" />
+              FEATURED
+            </span>
+          </div>
+
+          {/* Project mock preview */}
+          <div className="space-y-1.5 my-1">
             <div className="flex items-center justify-between">
               <div
-                className="h-2 w-1/3 rounded-sm transition-colors duration-500"
-                style={{
-                  backgroundColor: i === 0 ? "var(--accent-pop)" : undefined,
-                  opacity: i === 0 ? 0.8 : 0.25,
-                }}
-                {...(i !== 0 && {
-                  className: "h-2 w-1/3 rounded-sm bg-foreground/20 dark:bg-foreground/30",
-                })}
+                className="h-1.5 w-2/5 rounded-sm"
+                style={{ backgroundColor: "var(--accent-pop)", opacity: 0.85 }}
               />
-              <div className="w-1.5 h-1.5 rounded-full bg-foreground/20 dark:bg-foreground/30" />
+              <span className="text-[7.5px] font-mono text-muted-foreground/60">LIVE</span>
             </div>
-            <div className="h-1.5 w-3/4 rounded-sm bg-foreground/15 dark:bg-foreground/20" />
-            <div className="h-1.5 w-1/2 rounded-sm bg-foreground/10 dark:bg-foreground/15" />
+            <div className="h-1 w-3/4 rounded-sm bg-foreground/15 dark:bg-foreground/20" />
+            <div className="h-1 w-1/2 rounded-sm bg-foreground/10 dark:bg-foreground/15" />
           </div>
-        </motion.div>
-      ))}
+
+          {/* Bottom tags */}
+          <div className="mt-1.5 pt-1 border-t border-border/40 flex items-center justify-between text-[8px] font-mono text-foreground/50 dark:text-muted-foreground/60">
+            <span>Next.js · AI</span>
+            <span className="text-accent-pop/80 font-semibold">3+ Shipped</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

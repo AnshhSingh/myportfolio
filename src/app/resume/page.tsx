@@ -3,11 +3,11 @@ import ResumeViewer from "./ResumeViewer";
 
 export const metadata: Metadata = {
   title: "Resume | Ansh Singh",
-  description: "View and download the professional resume of Ansh Singh, Full Stack Developer and Computer Science Engineering student.",
+  description: "View and download the professional resume of Ansh Singh, Full Stack Developer at Digistashing Technologies and Computer Science graduate.",
   keywords: ["Ansh Singh resume", "full stack developer resume", "software engineer CV", "Ansh Singh experience"],
   openGraph: {
     title: "Resume | Ansh Singh",
-    description: "View and download the professional resume of Ansh Singh, Full Stack Developer and Computer Science Engineering student.",
+    description: "View and download the professional resume of Ansh Singh, Full Stack Developer at Digistashing Technologies and Computer Science graduate.",
     url: "/resume",
     images: [
       {
